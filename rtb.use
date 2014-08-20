@@ -1,0 +1,9 @@
+# rtb.use -----------------------------------------------------------
+# apparently pre-existing
+ROUTETABLE	rtb-5d17cc38	vpc-e975af8c
+ROUTE	local		active	192.168.208.0/20			CreateRouteTable
+ROUTE	igw-fb3bff9e		active	0.0.0.0/0			CreateRoute
+ASSOCIATION	rtbassoc-9669c7f3	subnet-cd3ed994
+ASSOCIATION	rtbassoc-de69c7bb	subnet-9ef237e9
+ASSOCIATION	rtbassoc-b8b619dd	main
+

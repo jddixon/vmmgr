@@ -1,0 +1,7 @@
+NETWORKACL	acl-f6c41b93	vpc-e975af8c	default
+ENTRY	egress	100	allow	0.0.0.0/0	all				
+ENTRY	egress	32767	deny	0.0.0.0/0	all				
+ENTRY	ingress	100	allow	0.0.0.0/0	all				
+ENTRY	ingress	32767	deny	0.0.0.0/0	all				
+ASSOCIATION	aclassoc-69a9ed0c	subnet-9ef237e9
+ASSOCIATION	aclassoc-4ca9ed29	subnet-cd3ed994

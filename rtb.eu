@@ -1,0 +1,12 @@
+# rtb.eu -------------------------------------------------------------
+# created by jdd 2014-07-20
+ROUTETABLE	rtb-f1649994	vpc-e248bc87
+ROUTE	local		active	192.168.192.0/20			CreateRouteTable
+ROUTE	igw-cf32d6aa		active	0.0.0.0/0			CreateRoute
+ASSOCIATION	rtbassoc-afc833ca	subnet-4f9f6c38
+
+# apparently pre-existing; the 'main' bit may present a problem
+ROUTETABLE	rtb-b9d924dc	vpc-e248bc87
+ROUTE	local		active	192.168.192.0/20			CreateRouteTable
+ASSOCIATION	rtbassoc-7b7a821e	main
+

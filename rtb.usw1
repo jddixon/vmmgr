@@ -1,0 +1,7 @@
+# rtb.usw1 ----------------------------------------------------------
+ROUTETABLE	rtb-6e4dae0b	vpc-07e70762
+ROUTE	local		active	192.168.224.0/20			CreateRouteTable
+ROUTE	igw-948d91f6		active	0.0.0.0/0			CreateRoute
+ASSOCIATION	rtbassoc-e3769486	subnet-8085b3c6
+ASSOCIATION	rtbassoc-3d28ca58	main
+

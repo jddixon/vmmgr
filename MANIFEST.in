@@ -1,0 +1,10 @@
+# see http://docs.python.org/distutils/sourcedist.html
+
+include netDistrib.conf
+include countem CHANGES README TODO MANIFEST.in
+include vmList vmScrub vmUpdate
+recursive-include vmmgr *.py
+global-exclude junk* .*swp 
+prune   .svn
+
+

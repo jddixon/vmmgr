@@ -1,0 +1,110 @@
+#!/usr/bin/python
+#
+# ~/dev/py/vmmgr/vmInit
+
+import boto, os, sys
+from argparse   import ArgumentParser
+from vmmgr   import *
+
+def doIt(args):
+
+    force       = args.force
+    testing     = args.testing
+    verbose     = args.verbose
+    regions     = args.regions
+
+    # XXX WORKING HERE
+
+def main():
+    """
+    Expect a command like
+        vmInit [options] siteName [, siteName]*
+
+    """
+
+    # program defaults ----------------------------------------------
+
+    # parse the command line ----------------------------------------
+    
+    DESC = 'list the named bucket in s3'
+    parser = ArgumentParser(description=DESC)
+
+    parser.add_argument('-a', '--allRegions', action='store_true',
+        help='process all regions')
+
+    parser.add_argument('-f', '--force', action='store_true',
+        help='force action')
+
+    parser.add_argument('-r', '--region', default='us-east-1',
+        help='select alternative to us-east-1')
+
+    parser.add_argument('-j', '--justShow', action='store_true',
+        help='show options and exit')
+
+    parser.add_argument('-T', '--testing', action='store_true',
+        help='this is a test run')
+
+    parser.add_argument('-v', '--verbose', action='store_true',
+        help='be chatty')
+
+    parser.add_argument('regions', nargs='*',
+        help='any number of valid region names')
+
+    args = parser.parse_args()
+
+    # fixups --------------------------------------------------------
+    if args.allRegions:
+        # WORKING THROUGH THIS SILLINESS
+        if len(args.regions) > 0:
+            print 'all regions selected, so ignoring names provided'
+        files = os.listdir(args.regions)
+        if len(files) == 0:
+            print 'no web sites, nothing to do'
+            sys.exit(0)
+        for file in files:
+            if file.startswith('.') or file.startswith('README') or file=='bin':
+                continue
+            pathToFile = os.path.join(args.regions, file)
+            if not os.path.isdir(pathToFile):
+                print "%s is not a directory!" % pathToFile     # DEBUG
+                continue
+            args.regions.append(file)
+    else:
+        for file in args.regions:
+            if not (args.force or file.endswith('uk')):
+                print "dropping %s: it's not a UK website" % file
+                args.vmmgr.remove(file)
+
+    args.regions.sort()
+
+    # sanity checks -------------------------------------------------
+
+    # complete setup ------------------------------------------------
+    appName = 'vmInit %s' % __version__
+
+    # maybe show options and such -----------------------------------
+    if args.verbose or args.justShow:
+        print "%s %s" % (appName, __version_date__)
+
+    if args.verbose or args.justShow:
+        print 'allRegions         = ' + str(args.allRegions)
+        print 'force              = ' + str(args.force)
+        print 'regions            = ' + str(args.regions)
+        print 'testing            = ' + str(args.testing)
+        print 'verbose            = ' + str(args.verbose)
+
+        if len(args.vmmgr) > 0:
+            print 'vmmgr:'
+            for website in args.vmmgr:
+                print "    %s" % website
+
+    if args.justShow:
+        sys.exit(0)
+
+    # do what's required --------------------------------------------
+    doIt(args)
+
+        
+if __name__ == '__main__':
+    main()
+

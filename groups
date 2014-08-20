@@ -1,0 +1,4 @@
+GROUP	sg-2c1ccd49	vpc-binders	servers supporting dns, smtp, xlReg
+GROUP	sg-56374833	vpc-binders	servers supporting dns, smtp, xlReg
+GROUP	sg-f8a6579d	vpc-binders	servers supporting dns, smtp, xlReg
+GROUP	sg-adeb52c8	vpc-binders	servers supporting dns, smtp, xlReg

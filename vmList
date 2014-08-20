@@ -1,0 +1,129 @@
+#!/usr/bin/python
+#
+# ~/dev/py/vmmgr/vmList
+
+import boto, os, sys
+from argparse   import ArgumentParser
+from vmmgr   import *
+
+def doIt(args):
+
+    force       = args.force
+    testing     = args.testing
+    verbose     = args.verbose
+    webDir      = args.webDir
+    vmmgr    = args.websites
+    cnx         = boto.connect_s3()
+
+    # get names of all existing buckets
+    rs  = cnx.get_all_buckets()
+    bNames = []
+    if verbose:
+        print 'existing buckets:'
+    for b in rs:
+        if verbose:
+            print '    ' + b.name
+        bNames.append(b.name)
+
+    if verbose:
+        print
+
+    for fqdn in vmmgr:
+        wwwFQDN     = 'www.' + fqdn
+        if wwwFQDN in bNames:
+            listSite(cnx, wwwFQDN)
+        elif verbose:
+            print "can't list %s; it's not one of our live buckets" % wwwFQDN
+
+def main():
+    """
+    Expect a command like
+        vmList [options] siteName [, siteName]*
+
+    """
+
+    # program defaults ----------------------------------------------
+
+    # parse the command line ----------------------------------------
+    
+    DESC = 'list the named bucket in s3'
+    parser = ArgumentParser(description=DESC)
+
+    parser.add_argument('-a', '--allSites', action='store_true',
+        help='erase all vmmgr')
+
+    parser.add_argument('-f', '--force', action='store_true',
+        help='list keys although not a website')
+
+    parser.add_argument('-g', '--webDir', default='/var/www',
+        help='select alternative to /var/www')
+
+    parser.add_argument('-j', '--justShow', action='store_true',
+        help='show options and exit')
+
+    parser.add_argument('-T', '--testing', action='store_true',
+        help='this is a test run')
+
+    parser.add_argument('-v', '--verbose', action='store_true',
+        help='be chatty')
+
+    parser.add_argument('vmmgr', nargs='*',
+        help='any number of valid website names')
+
+    args = parser.parse_args()
+
+    # fixups --------------------------------------------------------
+    if args.allSites:
+        if len(args.vmmgr) > 0:
+            print 'all sites selected, so ignoring names provided'
+        files = os.listdir(args.webDir)
+        if len(files) == 0:
+            print 'no web sites, nothing to do'
+            sys.exit(0)
+        for file in files:
+            if file.startswith('.') or file.startswith('README') or file=='bin':
+                continue
+            pathToFile = os.path.join(args.webDir, file)
+            if not os.path.isdir(pathToFile):
+                print "%s is not a directory!" % pathToFile     # DEBUG
+                continue
+            args.vmmgr.append(file)
+    else:
+        for file in args.vmmgr:
+            if not (args.force or file.endswith('uk')):
+                print "dropping %s: it's not a UK website" % file
+                args.vmmgr.remove(file)
+
+    args.vmmgr.sort()
+
+    # sanity checks -------------------------------------------------
+
+    # complete setup ------------------------------------------------
+    appName = 'vmList %s' % __version__
+
+    # maybe show options and such -----------------------------------
+    if args.verbose or args.justShow:
+        print "%s %s" % (appName, __version_date__)
+
+    if args.verbose or args.justShow:
+        print 'allSites           = ' + str(args.allSites)
+        print 'force              = ' + str(args.force)
+        print 'testing            = ' + str(args.testing)
+        print 'verbose            = ' + str(args.verbose)
+        print 'webDir             = ' + str(args.webDir)
+
+        if len(args.vmmgr) > 0:
+            print 'vmmgr:'
+            for website in args.vmmgr:
+                print "    %s" % website
+
+    if args.justShow:
+        sys.exit(0)
+
+    # do what's required --------------------------------------------
+    doIt(args)
+
+        
+if __name__ == '__main__':
+    main()
+

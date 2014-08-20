@@ -1,0 +1,8 @@
+ec2auth $1 -P tcp -p 22 -s 0.0.0.0/0	--region $2
+ec2auth $1 -P tcp -p 25 -s 0.0.0.0/0	--region $2
+ec2auth $1 -P tcp -p 53 -s 0.0.0.0/0	--region $2
+ec2auth $1 -P tcp -p 80 -s 0.0.0.0/0	--region $2
+ec2auth $1 -P tcp -p 443 -s 0.0.0.0/0	--region $2
+ec2auth $1 -P tcp -p 55555 -s 0.0.0.0/0	--region $2
+ec2auth $1 -t -1:-1 -P icmp	            --region $2
+ec2auth $1 -P udp -p 53 -s 0.0.0.0/0	--region $2

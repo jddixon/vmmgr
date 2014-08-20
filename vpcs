@@ -1,0 +1,4 @@
+VPC	vpc-e248bc87	available	192.168.192.0/20	dopt-ae9385cc	default	false
+VPC	vpc-e975af8c	available	192.168.208.0/20	dopt-d8190aba	default	false
+VPC	vpc-07e70762	available	192.168.224.0/20	dopt-c9796eab	default	false
+VPC	vpc-6ffb050a	available	192.168.240.0/20	dopt-71213c13	default	false

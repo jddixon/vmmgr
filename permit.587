@@ -1,0 +1,5 @@
+#ec2auth sg-2c1ccd49 -P tcp -p 587 -s 0.0.0.0/0 --region eu-west-1
+
+ec2auth sg-56374833 -P tcp -p 587 -s 0.0.0.0/0 --region us-east-1
+ec2auth sg-f8a6579d -P tcp -p 587 -s 0.0.0.0/0 --region us-west-1
+ec2auth sg-adeb52c8 -P tcp -p 587 -s 0.0.0.0/0 --region us-west-2

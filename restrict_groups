@@ -1,0 +1,4 @@
+#./restrict_group sg-2c1ccd49    eu-west-1
+#./restrict_group sg-56374833  us-east-1
+#./restrict_group sg-f8a6579d    us-west-1
+./restrict_group sg-adeb52c8    us-west-2
