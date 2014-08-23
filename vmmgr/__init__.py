@@ -13,8 +13,8 @@ __all__ = [ '__version__',              '__version_date__',
             # CLASSES
           ]
 
-__version__      = '0.1.0'
-__version_date__ = '2014-07-19'
+__version__      = '0.1.1'
+__version_date__ = '2014-08-22'
 
 # 
 REGIONS     = ['eu-west-1',     'us-east-1',    
@@ -33,7 +33,8 @@ VPC_CIDRS   = ['192.168.192.0/20', '192.168.208.0/20',
 # only zones us-east-{c,d,e} are actually available!
 ZONES       = [['eu-west-1a',],     
                ['us-east-1c',    'us-east-1d', ],
-               ['us-west=1c',],
+               ['us-west-1c',],
+               ['us-west-2c',],
                ]
 
 SUBNET_CIDRS= [ ['192.168.192.0/24', ], 

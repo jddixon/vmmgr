@@ -4,5 +4,9 @@
 # use 'countem" to count lines - but remember to rm -rf build/
 #--------------------------------------------------------------------
 
+v0.1.1
+    2014-08-22
+        minor corrections to tables in vmmgr/__init__.py
 v0.1.0
     2014-07-16
+        initial import

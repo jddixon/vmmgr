@@ -1,3 +1,8 @@
 # ~/dev/py/vmmgr/TODO
 
-2014-07-16
+2014-08-22
+    * write boto script to verify tables in vmmgr/__init__.py
+
+2014-08-21
+    * git remote set-url origin git@github.com:jddixon/PROJECT          * DONE
+    * git push --set-upstream origin PROJECT                            * DONE
