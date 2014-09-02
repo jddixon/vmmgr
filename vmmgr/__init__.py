@@ -64,7 +64,7 @@ ROUTE_TABLES    = ['rtb-f1649994', 'rtb-5d17cc38',
 # rtb 
 RTB_ASSOCS      = [['rtbassoc-afc833ca',],
                    ['rtbassoc-de69c7bb', 'rtbassoc-9669c7f3',],
-                   ['rtbassoc-e3769486',]
+                   ['rtbassoc-e3769486',],
                    # this is for the local rtb
-                   ['rtbassoc-09d7176c',]
+                   ['rtbassoc-09d7176c',],
                    ]

@@ -6,13 +6,16 @@ import boto, os, sys
 from argparse   import ArgumentParser
 from vmmgr   import *
 
+def listSite(cnx, fqdn):
+    print "listSite(%s) invoked" % fqdn
+
 def doIt(args):
 
     force       = args.force
     testing     = args.testing
     verbose     = args.verbose
     webDir      = args.webDir
-    vmmgr    = args.websites
+    websites    = args.websites
     cnx         = boto.connect_s3()
 
     # get names of all existing buckets
@@ -22,13 +25,13 @@ def doIt(args):
         print 'existing buckets:'
     for b in rs:
         if verbose:
-            print '    ' + b.name
+            print '    BUCKET: ' + b.name
         bNames.append(b.name)
 
     if verbose:
         print
 
-    for fqdn in vmmgr:
+    for fqdn in websites:
         wwwFQDN     = 'www.' + fqdn
         if wwwFQDN in bNames:
             listSite(cnx, wwwFQDN)
@@ -50,7 +53,7 @@ def main():
     parser = ArgumentParser(description=DESC)
 
     parser.add_argument('-a', '--allSites', action='store_true',
-        help='erase all vmmgr')
+        help='add a website')
 
     parser.add_argument('-f', '--force', action='store_true',
         help='list keys although not a website')
@@ -67,14 +70,14 @@ def main():
     parser.add_argument('-v', '--verbose', action='store_true',
         help='be chatty')
 
-    parser.add_argument('vmmgr', nargs='*',
+    parser.add_argument('websites', nargs='*',
         help='any number of valid website names')
 
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
     if args.allSites:
-        if len(args.vmmgr) > 0:
+        if len(args.websites) > 0:
             print 'all sites selected, so ignoring names provided'
         files = os.listdir(args.webDir)
         if len(files) == 0:
@@ -87,14 +90,14 @@ def main():
             if not os.path.isdir(pathToFile):
                 print "%s is not a directory!" % pathToFile     # DEBUG
                 continue
-            args.vmmgr.append(file)
+            args.websites.append(file)
     else:
-        for file in args.vmmgr:
+        for file in args.websites:
             if not (args.force or file.endswith('uk')):
                 print "dropping %s: it's not a UK website" % file
-                args.vmmgr.remove(file)
+                args.websites.remove(file)
 
-    args.vmmgr.sort()
+    args.websites.sort()
 
     # sanity checks -------------------------------------------------
 
@@ -112,9 +115,9 @@ def main():
         print 'verbose            = ' + str(args.verbose)
         print 'webDir             = ' + str(args.webDir)
 
-        if len(args.vmmgr) > 0:
-            print 'vmmgr:'
-            for website in args.vmmgr:
+        if len(args.websites) > 0:
+            print 'websites:'
+            for website in args.websites:
                 print "    %s" % website
 
     if args.justShow:
