@@ -1,6 +1,4 @@
-~/dev/py/vmmgr/README
-
-2014-07-25
+# vmmgr
 
 We are set up to operate in four zones: eu-west-1, us-east-1, us-west-1,
 and us-west-2.  
