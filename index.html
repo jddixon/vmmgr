@@ -1,1 +1,46 @@
-vmmgr
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>vmmgr</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/ghp.css" />
+</head>
+<body>
+<div class="content">
+<h1>vmmgr</h1>
+
+<p>We are set up to operate in four zones: eu-west-1, us-east-1, us-west-1,
+and us-west-2.</p>
+
+<p>A /20 is set up for each VPC.  This is 16 class Cs.  It must be properly
+aligned.</p>
+
+<p>A VPC has to be defined for each region used.  This is done by executing
+a command like
+    ec2addvpc 192.168.240.0/20 &ndash;region us-west-2 &gt;&gt; vpcx</p>
+
+<p>A security group has been defined for each region.  This is done by
+adding a line to make.groups after commenting out the preceding line(s)
+and then executing the command.</p>
+  <div class="f">
+    <hr />
+    <div class="license">
+      <p><a href="LICENSE.html">LICENSE</a></p>
+    </div>
+    <div class="project">
+      github <a href="https://github.com/jddixon/vmmgr">      <img src="img/GitHub-Mark-32px.png" 
+        alt="link to project"  
+        style="display: inline-block; margin-left: 0 auto; margin-right: 0 auto">
+       </a> project
+    </div>
+    <div class="logo" >
+      <a href="http://www.xlattice.org">
+      <img src="img/xlattice-2014.jpg" alt="the XLattice Project" style="float: right;" >
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
