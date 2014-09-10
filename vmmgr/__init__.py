@@ -11,12 +11,15 @@ __all__ = [ '__version__',              '__version_date__',
             'GATEWAY_IDS',
             # FUNCTIONS
             # CLASSES
+            'VMMgr',
+            'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.1.1'
-__version_date__ = '2014-08-22'
+__version__      = '0.2.0'
+__version_date__ = '2014-09-10'
 
-# 
+# CONSTANTS #########################################################
+# regions of interest at this time
 REGIONS     = ['eu-west-1',     'us-east-1',    
                'us-west=1',     'us-west-2', ]
 
@@ -59,12 +62,75 @@ ROUTE_TABLES    = ['rtb-f1649994', 'rtb-5d17cc38',
                    ['rtb-cf7f84aa', 'rtb-d1708bb4'],
                    ]
 
-# this is not accurate (a) the 'main' associations are missing and
+# This is not accurate (a) the 'main' associations are missing and
 # (b) the eu-west 'main' association is in any case with the wrong
-# rtb 
+# rtb.  Returns a list rather than a single value; the list maps to
+# zones rather than regions.
 RTB_ASSOCS      = [['rtbassoc-afc833ca',],
                    ['rtbassoc-de69c7bb', 'rtbassoc-9669c7f3',],
                    ['rtbassoc-e3769486',],
                    # this is for the local rtb
                    ['rtbassoc-09d7176c',],
                    ]
+# CLASS #############################################################
+class VMMgr(object):
+    def __init__(self):
+        self._regions       = REGIONS
+        self._groupIDs      = GROUP_IDS
+        self._vpcIDs        = VPC_IDS
+        self._vpcCIDRs      = VPC_CIDRS
+        self._zones         = ZONES 
+        self._subnetCIDRs   = SUBNET_CIDRS
+        self._subnetIDs     = SUBNET_IDS
+        self._gatewayIDs    = GATEWAY_IDS
+        self._routeTables   = ROUTE_TABLES
+        self._rtbAssocs     = RTB_ASSOCS
+
+    def region(self, ndx):
+        """ raises IndexError"""
+        return self._regions[ndx]
+
+    def groupID(self, ndx):
+        """ raises IndexError"""
+        return self._groupIDs[ndx]
+
+    def vpcID(self, ndx):
+        return self._vpcIDs[ndx]
+
+    def vpcCIDR(self, ndx):
+        return self._vpcCIDRs[ndx]
+
+    def zone(self, ndx):
+        return self._zones[ndx]
+
+    def subnetCIDR(self, ndx):
+        return self._subnetCIDRs[ndx]
+
+    def subnetID(self, ndx):
+        return self._subnetIDs[ndx]
+
+    def gatewayID(self, ndx):
+        return self._gatewayIDs[ndx]
+
+    def routeTable(self, ndx):
+        return self._routeTables[ndx]
+
+    def rtbAssoc(self, ndx):
+        return self._rtbAssocs[ndx]
+
+# CLASS #############################################################
+class Host(object):
+    def __init__(self, fqdn):
+        self._fqdn = fqdn
+
+    @property
+    def fqdn(self):
+        return self._fqdn
+
+class EC2Host(Host):
+    def __init__(self, fqdn):
+        super(EC2Host, self).__init__(fqdn)
+
+class LinuxBox(Host):
+    def __init__(self, fqdn):
+        super(LinuxBox, self).__init__(fqdn)

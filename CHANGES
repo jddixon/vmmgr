@@ -4,9 +4,13 @@
 # use 'countem" to count lines - but remember to rm -rf build/
 #--------------------------------------------------------------------
 
+v0.2.0
+    2014-09-10
+        * introduced new classes: VMMgr, Host, EC2Host, LinuxBox,
+            and functions to retrieve core parameters               SLOC  218
 v0.1.1
     2014-08-22
-        minor corrections to tables in vmmgr/__init__.py
+        * minor corrections to tables in vmmgr/__init__.py
 v0.1.0
     2014-07-16
-        initial import
+        * initial import

@@ -1,1 +1,3 @@
+cd ~/dev/py/vmmgr
+rm -rf build
 pySloc countem vmList vmScrub vmUpdate
