@@ -15,8 +15,8 @@ __all__ = [ '__version__',              '__version_date__',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.2.0'
-__version_date__ = '2014-09-10'
+__version__      = '0.3.0'
+__version_date__ = '2014-10-12'
 
 # CONSTANTS #########################################################
 # regions of interest at this time

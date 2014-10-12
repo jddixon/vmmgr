@@ -9,15 +9,23 @@ from vmmgr   import *
 def listSite(cnx, fqdn):
     print "listSite(%s) invoked" % fqdn
 
+def _validRegion(region):
+    valid = False
+    for r in REGIONS:
+        if region == r:
+            valid = True
+            break
+    return valid
+
 def doIt(args):
 
     force       = args.force
     testing     = args.testing
     verbose     = args.verbose
-    webDir      = args.webDir
-    websites    = args.websites
+    regions     = args.regions
     cnx         = boto.connect_s3()
 
+    # NONSENSE BELOW HERE ===========================================
     # get names of all existing buckets
     rs  = cnx.get_all_buckets()
     bNames = []
@@ -31,17 +39,18 @@ def doIt(args):
     if verbose:
         print
 
-    for fqdn in websites:
+    for fqdn in regions:
         wwwFQDN     = 'www.' + fqdn
         if wwwFQDN in bNames:
             listSite(cnx, wwwFQDN)
         elif verbose:
             print "can't list %s; it's not one of our live buckets" % wwwFQDN
+    # END NONSENSE ==================================================
 
 def main():
     """
     Expect a command like
-        vmList [options] siteName [, siteName]*
+        vmList [options] [region [, region]*]
 
     """
 
@@ -49,17 +58,22 @@ def main():
 
     # parse the command line ----------------------------------------
     
-    DESC = 'list the named bucket in s3'
+    DESC = 'list ec2 instances, volumes, and networks'
     parser = ArgumentParser(description=DESC)
 
-    parser.add_argument('-a', '--allSites', action='store_true',
-        help='add a website')
+    parser.add_argument('-A', '--allEntities', action='store_true',
+        help='list all instances and volumes')
+    parser.add_argument('-I', '--allInstances', action='store_true',
+        help='list all instances')
+    parser.add_argument('-N', '--allNetworks', action='store_true',
+        help='list all networks')
+    parser.add_argument('-R', '--allRegions', action='store_true',
+        help='list all regions')
+    parser.add_argument('-V', '--allVolumes', action='store_true',
+        help='list all volumes')
 
     parser.add_argument('-f', '--force', action='store_true',
-        help='list keys although not a website')
-
-    parser.add_argument('-g', '--webDir', default='/var/www',
-        help='select alternative to /var/www')
+        help='force action on otherwise protected entity')
 
     parser.add_argument('-j', '--justShow', action='store_true',
         help='show options and exit')
@@ -70,35 +84,58 @@ def main():
     parser.add_argument('-v', '--verbose', action='store_true',
         help='be chatty')
 
-    parser.add_argument('websites', nargs='*',
-        help='any number of valid website names')
+    parser.add_argument('regions', nargs='*',
+        help='any number of valid region names')
 
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
-    if args.allSites:
-        if len(args.websites) > 0:
-            print 'all sites selected, so ignoring names provided'
-        files = os.listdir(args.webDir)
-        if len(files) == 0:
-            print 'no web sites, nothing to do'
+    if args.allEntities:
+        args.AllInstances = true
+        args.AllNetworks  = true
+        args.AllRegions   = true
+        args.AllVolumes   = true
+
+    # arguments are interpreted relative to the regions ---
+    # list, so we settle this first
+    if args.allRegions:
+        if len(args.regions) > 0:
+            print 'all regions selected, so ignoring region name(s) provided'
+            args.regions = []
+        regions = REGIONS
+        if len(regions) == 0:
+            print 'no regions, nothing to do'
             sys.exit(0)
-        for file in files:
-            if file.startswith('.') or file.startswith('README') or file=='bin':
-                continue
-            pathToFile = os.path.join(args.webDir, file)
-            if not os.path.isdir(pathToFile):
-                print "%s is not a directory!" % pathToFile     # DEBUG
-                continue
-            args.websites.append(file)
+        for region in regions:
+            if _validRegion(region):
+                # XXX reject if not region in REGIONS
+                args.regions.append(region)
     else:
-        for file in args.websites:
-            if not (args.force or file.endswith('uk')):
-                print "dropping %s: it's not a UK website" % file
-                args.websites.remove(file)
+        for region in args.regions:
+            # XXX remove from list if not region in REGIONS
+            if not _validRegion(region):
+                print "dropping %s: it's not a valid AWS region" % region
+                args.regions.remove(region)
 
-    args.websites.sort()
+    args.regions.sort()
 
+    # fixup networks list relative to the regions ---------
+    # XXX STUB
+
+    # fixup instances list relative to the regions --------
+    # XXX STUB
+
+    # fixup volumes list relative to the regions ----------
+
+    # unattached volumes are listed first, by zone
+    # XXX STUB
+
+    # then attached volumes are listed under the instance 
+    # XXX STUB
+
+    # XXX STUB
+
+    # 
     # sanity checks -------------------------------------------------
 
     # complete setup ------------------------------------------------
@@ -109,16 +146,19 @@ def main():
         print "%s %s" % (appName, __version_date__)
 
     if args.verbose or args.justShow:
-        print 'allSites           = ' + str(args.allSites)
+        print 'allEntities        = ' + str(args.allEntities)
+        print '  allInstances     = ' + str(args.allInstances)
+        print '  allNetworks      = ' + str(args.allNetworks)
+        print '  allRegions       = ' + str(args.allRegions)
+        print '  allVolumes       = ' + str(args.allVolumes)
         print 'force              = ' + str(args.force)
         print 'testing            = ' + str(args.testing)
         print 'verbose            = ' + str(args.verbose)
-        print 'webDir             = ' + str(args.webDir)
 
-        if len(args.websites) > 0:
-            print 'websites:'
-            for website in args.websites:
-                print "    %s" % website
+        if len(args.regions) > 0:
+            print 'regions:'
+            for region in args.regions:
+                print "    %s" % region
 
     if args.justShow:
         sys.exit(0)

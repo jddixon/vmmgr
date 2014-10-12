@@ -1,13 +1,18 @@
 # ~/dev/py/vmmgr/TODO
 
-2014-09-01
-    * respec vmList: it appears to have been hacked from a quite 
+2014-10-12 (edited from 09-01)
+    * respec vmList: its current form was hacked from a quite 
         different application.  Change to list all instances in EC2,
         distinguishing the core 4 instances, which are presumed to be
         permanent, from others, presumed to be temporary
+        - need an option to list attached volumes 
+        - need an option to list volumes not attached to any instance
+            * these get listed under a pseudo-host which has a name
+                derived from that of the zone
         - need an option to list installed packages
-        - -a option lists all, including core
+        - --allPackages option lists all, including core
         - otherwise list those named
+
     * add vmLaunch
         - use appropriate Canonical Ubuntu LTS 14.04 image
         - must NOT duplicate/replace any of the 4 core instances
@@ -18,10 +23,13 @@
             * prerequisites: bzr gcc git libc6-dev mercurial
             * must mkdir /usr/local/src
             * edit /etc/environment using sed
+
     * add vmKill
         - -a kill all non-core instances 
         - otherwise kill those listed, excluding core instances, even
             if listed
+            * -f option forces kill, but requires explicit conformation
+
     * vmVerify: boto script to verify tables in vmmgr/__init__.py
 
 2014-08-21
