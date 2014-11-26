@@ -9,14 +9,15 @@ __all__ = [ '__version__',              '__version_date__',
             'ZONES',    
             'SUBNET_IDS',   'SUBNET_CIDRS', 
             'GATEWAY_IDS',
-            # FUNCTIONS
-            # CLASSES
+            # FUNCTIONS ---------------------------------------------
+            '_validRegion',
+            # CLASSES -----------------------------------------------
             'VMMgr',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.3.1'
-__version_date__ = '2014-11-25'
+__version__      = '0.3.2'
+__version_date__ = '2014-11-26'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -72,7 +73,19 @@ RTB_ASSOCS      = [['rtbassoc-afc833ca',],
                    # this is for the local rtb
                    ['rtbassoc-09d7176c',],
                    ]
+
+# FUNCTIONS #########################################################
+
+def _validRegion(region):
+    valid = False
+    for r in REGIONS:
+        if region == r:
+            valid = True
+            break
+    return valid
+
 # CLASS #############################################################
+
 class VMMgr(object):
     def __init__(self):
         self._regions       = REGIONS

@@ -1,9 +1,13 @@
 # ~/dev/py/vmmgr/CHANGES
 #
 #--------------------------------------------------------------------
-# use 'countem" to count lines - but remember to rm -rf build/
+# use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.3.2
+    2014-11-26
+        * vmInit debugged
+        * region list handling corrected in vmInit, vmList          SLOC  290
 v0.3.1
     2014-11-25
         * correct typos, sketch out objectives                      SLOC  303

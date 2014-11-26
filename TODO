@@ -3,26 +3,24 @@
 2014-11-25
     * FIX: although ec2din succeeds, ./testSetup.py fails citing
         an AuthFailure
-    * FIX: ./vmInit fails, complaining that Namespace object
-        has no attribute 'vmmgr'
-        - this was hacked from another program and makes no 
-            sense in its current form
+        - hint: zones can only be specified in us-east-1
 
-2014-10-12 (edited from 09-01)
-    * respec vmList: its current form was hacked from a quite 
-        different application.  Change to list all instances in EC2,
-        distinguishing the core 4 instances, which are presumed to be
-        permanent, from others, presumed to be temporary
-        - need an option to list attached volumes 
-        - need an option to list volumes not attached to any instance
-            * these get listed under a pseudo-host which has a name
-                derived from that of the zone
-        - need an option to list installed packages
-        - --allPackages option lists all, including core
-        - otherwise list those named
+    * FIX: ./vmInit fails, complaining that Namespace object            * FIXED
+        has no attribute 'vmmgr'                                        * FIXED
 
-    * add vmLaunch
-        - use appropriate Canonical Ubuntu LTS 14.04 image
+2014-11-25 (edited from -10-12, edited from -09-01)
+
+    * specify vmInit [options] [region]*
+        - where no region specified, defaults to us-east-1
+
+    * vmKill [options] instance [instance]*
+        - -I option kill all non-core instances 
+        - otherwise kill those listed, excluding core instances, even
+            if listed
+            * -f option forces kill, but requires explicit confirmation
+
+    * vmLaunch
+        - use Canonical Ubuntu LTS 14.04 image appropriate to region
         - must NOT duplicate/replace any of the 4 core instances
         - apt-get update 
         - install basic packages
@@ -32,13 +30,25 @@
             * must mkdir /usr/local/src
             * edit /etc/environment using sed
 
-    * add vmKill
-        - -a kill all non-core instances 
-        - otherwise kill those listed, excluding core instances, even
-            if listed
-            * -f option forces kill, but requires explicit conformation
+    * respec vmList: 
+        - its current form was hacked from a quite different application.  
+            Change to list all instances in EC2, distinguishing the core 
+            4 instances, which are presumed to be permanent, from others, 
+            presumed to be temporary
+        - need an option to list attached volumes 
+        - need an option to list volumes not attached to any instance
+            * these get listed under a pseudo-host which has a name
+                derived from that of the zone
+        - need an option to list installed packages
+        - --allPackages option lists all, including core
+        - otherwise list those named
 
-    * vmVerify: boto script to verify tables in vmmgr/__init__.py
+    * specify vmScrub
+
+    * specify vmUpdate
+
+    * specify vmVerify 
+        - boto script to verify tables in vmmgr/__init__.py
 
 2014-08-21
     * git remote set-url origin git@github.com:jddixon/PROJECT          * DONE

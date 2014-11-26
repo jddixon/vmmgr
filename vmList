@@ -9,14 +9,6 @@ from vmmgr   import *
 def listSite(cnx, fqdn):
     print "listSite(%s) invoked" % fqdn
 
-def _validRegion(region):
-    valid = False
-    for r in REGIONS:
-        if region == r:
-            valid = True
-            break
-    return valid
-
 def doIt(args):
 
     force       = args.force
@@ -25,32 +17,12 @@ def doIt(args):
     regions     = args.regions
     cnx         = boto.connect_s3()
 
-    # NONSENSE BELOW HERE ===========================================
-    # get names of all existing buckets
-    rs  = cnx.get_all_buckets()
-    bNames = []
-    if verbose:
-        print 'existing buckets:'
-    for b in rs:
-        if verbose:
-            print '    BUCKET: ' + b.name
-        bNames.append(b.name)
-
-    if verbose:
-        print
-
-    for fqdn in regions:
-        wwwFQDN     = 'www.' + fqdn
-        if wwwFQDN in bNames:
-            listSite(cnx, wwwFQDN)
-        elif verbose:
-            print "can't list %s; it's not one of our live buckets" % wwwFQDN
-    # END NONSENSE ==================================================
+    # XXX STUB XXX
 
 def main():
     """
     Expect a command like
-        vmList [options] [region [, region]*]
+        vmList [options] [region[ region]*]
 
     """
 
@@ -102,20 +74,15 @@ def main():
         if len(args.regions) > 0:
             print 'all regions selected, so ignoring region name(s) provided'
             args.regions = []
-        regions = REGIONS
-        if len(regions) == 0:
-            print 'no regions, nothing to do'
-            sys.exit(0)
-        for region in regions:
-            if _validRegion(region):
-                # XXX reject if not region in REGIONS
-                args.regions.append(region)
+        args.regions = REGIONS
     else:
         for region in args.regions:
-            # XXX remove from list if not region in REGIONS
             if not _validRegion(region):
                 print "dropping %s: it's not a valid AWS region" % region
                 args.regions.remove(region)
+
+    if len(args.regions) == 0:
+        args.regions = ['us-east-1']
 
     args.regions.sort()
 

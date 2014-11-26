@@ -18,7 +18,7 @@ def doIt(args):
 def main():
     """
     Expect a command like
-        vmInit [options] siteName [, siteName]*
+        vmInit [options] [region [ region]*]
 
     """
 
@@ -26,17 +26,22 @@ def main():
 
     # parse the command line ----------------------------------------
     
-    DESC = 'list the named bucket in s3'
+    DESC = 'NEED BRIEF DESC'
     parser = ArgumentParser(description=DESC)
 
-    parser.add_argument('-a', '--allRegions', action='store_true',
-        help='process all regions')
+    parser.add_argument('-A', '--allEntities', action='store_true',
+        help='initialize all instances and volumes')
+    parser.add_argument('-I', '--allInstances', action='store_true',
+        help='initialize all instances')
+    parser.add_argument('-N', '--allNetworks', action='store_true',
+        help='initialize all networks')
+    parser.add_argument('-R', '--allRegions', action='store_true',
+        help='initialize all regions')
+    parser.add_argument('-V', '--allVolumes', action='store_true',
+        help='initialize all volumes')
 
     parser.add_argument('-f', '--force', action='store_true',
-        help='force action')
-
-    parser.add_argument('-r', '--region', default='us-east-1',
-        help='select alternative to us-east-1')
+        help='force action on otherwise protected entity')
 
     parser.add_argument('-j', '--justShow', action='store_true',
         help='show options and exit')
@@ -53,27 +58,27 @@ def main():
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
+    if args.allEntities:
+        args.allInstances = True
+        args.allNetworks  = True
+        args.allRegions   = True
+        args.allVolumes   = True
+
+    # arguments are interpreted relative to the regions ---
+    # list, so we settle this first
     if args.allRegions:
-        # WORKING THROUGH THIS SILLINESS
         if len(args.regions) > 0:
-            print 'all regions selected, so ignoring names provided'
-        files = os.listdir(args.regions)
-        if len(files) == 0:
-            print 'no web sites, nothing to do'
-            sys.exit(0)
-        for file in files:
-            if file.startswith('.') or file.startswith('README') or file=='bin':
-                continue
-            pathToFile = os.path.join(args.regions, file)
-            if not os.path.isdir(pathToFile):
-                print "%s is not a directory!" % pathToFile     # DEBUG
-                continue
-            args.regions.append(file)
+            print 'all regions selected, so ignoring region name(s) provided'
+            args.regions = []
+        args.regions = REGIONS
     else:
-        for file in args.regions:
-            if not (args.force or file.endswith('uk')):
-                print "dropping %s: it's not a UK website" % file
-                args.vmmgr.remove(file)
+        for region in args.regions:
+            if not _validRegion(region):
+                print "dropping %s: it's not a valid AWS region" % region
+                args.regions.remove(region)
+
+    if len(args.regions) == 0:
+        args.regions = ['us-east-1']
 
     args.regions.sort()
 
@@ -87,16 +92,20 @@ def main():
         print "%s %s" % (appName, __version_date__)
 
     if args.verbose or args.justShow:
-        print 'allRegions         = ' + str(args.allRegions)
+        print 'allEntities        = ' + str(args.allEntities)
+        print '  allInstances     = ' + str(args.allInstances)
+        print '  allNetworks      = ' + str(args.allNetworks)
+        print '  allRegions       = ' + str(args.allRegions)
+        print '  allVolumes       = ' + str(args.allVolumes)
         print 'force              = ' + str(args.force)
-        print 'regions            = ' + str(args.regions)
         print 'testing            = ' + str(args.testing)
         print 'verbose            = ' + str(args.verbose)
 
-        if len(args.vmmgr) > 0:
-            print 'vmmgr:'
-            for website in args.vmmgr:
-                print "    %s" % website
+        if len(args.regions) > 0:
+            print 'regions:'
+            for region in args.regions:
+                print "    %s" % region
+
 
     if args.justShow:
         sys.exit(0)
