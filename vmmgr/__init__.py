@@ -15,13 +15,13 @@ __all__ = [ '__version__',              '__version_date__',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.3.0'
-__version_date__ = '2014-10-12'
+__version__      = '0.3.1'
+__version_date__ = '2014-11-25'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
 REGIONS     = ['eu-west-1',     'us-east-1',    
-               'us-west=1',     'us-west-2', ]
+               'us-west-1',     'us-west-2', ]
 
 # these are IDs for vpc-binders in each region
 GROUP_IDS   = ['sg-2c1ccd49',   'sg-56374833',  

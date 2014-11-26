@@ -3,7 +3,7 @@
 include netDistrib.conf
 include countem CHANGES README.* TODO MANIFEST.in
 include group* make* nacl* permit* restrict* rtb* subnets update*
-include vmList vmScrub vmUpdate
+include vmInit vmKill vmLaunch vmList vmScrub vmUpdate vmVerify
 recursive-include vmmgr *.py
 global-exclude junk* .*swp 
 prune   .svn

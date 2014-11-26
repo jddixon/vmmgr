@@ -1,5 +1,13 @@
 # ~/dev/py/vmmgr/TODO
 
+2014-11-25
+    * FIX: although ec2din succeeds, ./testSetup.py fails citing
+        an AuthFailure
+    * FIX: ./vmInit fails, complaining that Namespace object
+        has no attribute 'vmmgr'
+        - this was hacked from another program and makes no 
+            sense in its current form
+
 2014-10-12 (edited from 09-01)
     * respec vmList: its current form was hacked from a quite 
         different application.  Change to list all instances in EC2,

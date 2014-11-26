@@ -91,10 +91,10 @@ def main():
 
     # fixups --------------------------------------------------------
     if args.allEntities:
-        args.AllInstances = true
-        args.AllNetworks  = true
-        args.AllRegions   = true
-        args.AllVolumes   = true
+        args.allInstances = True
+        args.allNetworks  = True
+        args.allRegions   = True
+        args.allVolumes   = True
 
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first

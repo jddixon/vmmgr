@@ -4,6 +4,9 @@
 # use 'countem" to count lines - but remember to rm -rf build/
 #--------------------------------------------------------------------
 
+v0.3.1
+    2014-11-25
+        * correct typos, sketch out objectives                      SLOC  303
 v0.3.0
     2014-10-12
         * skeletal vmList                                           SLOC  234
