@@ -5,6 +5,10 @@
 #--------------------------------------------------------------------
 
 v0.3.2
+    2014-12-01
+        * internal documentation for vmmgr/__init__.py              SLOC  389
+    2014-11-30
+        * rudimentary testSetup.py working                          SLOC  292
     2014-11-26
         * vmInit debugged
         * region list handling corrected in vmInit, vmList          SLOC  290

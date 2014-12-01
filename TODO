@@ -1,13 +1,15 @@
 # ~/dev/py/vmmgr/TODO
 
-2014-11-28
+2014-11-30 (-28, edited)
     * region parameter is RegionInfo object.  To use string name, try
-        v = boto.connect.toRegion('eu-west-1')
+            v = boto.ec2.connect_to_region('eu-west-1')
+        which returns an EC2Connection object or 
+            regionInfo = boto.ec2.get_region(regionName)
 
 2014-11-25
-    * FIX: although ec2din succeeds, ./testSetup.py fails citing
-        an AuthFailure
-        - hint: zones can only be specified in us-east-1
+    * FIX: although ec2din succeeds, ./testSetup.py fails citing        * FIXED
+        an AuthFailure.  XXX This seems to have been the result of      * FIXED
+        using a string where a RegionInfo object was called for.        * FIXED
 
     * FIX: ./vmInit fails, complaining that Namespace object            * FIXED
         has no attribute 'vmmgr'                                        * FIXED

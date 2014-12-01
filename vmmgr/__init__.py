@@ -17,7 +17,7 @@ __all__ = [ '__version__',              '__version_date__',
           ]
 
 __version__      = '0.3.2'
-__version_date__ = '2014-11-26'
+__version_date__ = '2014-12-01'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -77,6 +77,14 @@ RTB_ASSOCS      = [['rtbassoc-afc833ca',],
 # FUNCTIONS #########################################################
 
 def _validRegion(region):
+    """
+    Whether a region name is valid.
+
+    :param region: The name of an EC2 region.
+    :type region: str
+    :return: True if parameter is the name of a valid EC2 region.
+    :rtype: boolean
+    """
     valid = False
     for r in REGIONS:
         if region == r:
@@ -87,6 +95,19 @@ def _validRegion(region):
 # CLASS #############################################################
 
 class VMMgr(object):
+    """
+
+    :ivar _regions: List of valid EC2 region names.
+    :ivar _groupIDs: A list of security group IDs (strings).
+    :ivar _vpcIDs: A list of Virtual Private Cloud (VPC) IDs.
+    :ivar _vpcCIDRS: List of CIDR block specs, dotted quad followed by prefix
+        length.
+    :ivar _zones: List of availability zones within region.
+    :ivar _subnetCIDRs: List of CIDR blocks associated with respective subnets.
+    :ivar _subnetIDs: List of subnet IDs.
+    :ivar _gatewayIDs: List of internet gateways associated with respective
+        subnets.
+    """
     def __init__(self):
         self._regions       = REGIONS
         self._groupIDs      = GROUP_IDS
@@ -100,38 +121,127 @@ class VMMgr(object):
         self._rtbAssocs     = RTB_ASSOCS
 
     def region(self, ndx):
-        """ raises IndexError"""
+        """ 
+        Region name.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: the EC2 region name corresponding to the index.
+        :rtype: str
+        """
         return self._regions[ndx]
 
     def groupID(self, ndx):
-        """ raises IndexError"""
+        """ 
+        ID of security group for region.
+
+        :param ndx: zero-baseds index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: the security group ID corresponding to the index.
+        :rtype: str
+        """
         return self._groupIDs[ndx]
 
     def vpcID(self, ndx):
+        """ 
+        ID of virtual private cloud (VPD) for region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: the virtual private cloud ID corresponding to the index.
+        :rtype: str
+        """
         return self._vpcIDs[ndx]
 
     def vpcCIDR(self, ndx):
+        """ 
+        Main CIDR block for the region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: the VPC's CIDR block (dotted quad/prefix length)  
+        :rtype: str
+        """
         return self._vpcCIDRs[ndx]
 
     def zone(self, ndx):
+        """ 
+        Availability zones in use within the region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: zones in use within the region
+        :rtype: list of str
+        """
         return self._zones[ndx]
 
     def subnetCIDR(self, ndx):
+        """ 
+        CIDR blocks used by subnets within the rgion.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: CIDR blocks associated with respective subnets in region. 
+        :rtype: list of list of str
+        """
         return self._subnetCIDRs[ndx]
 
     def subnetID(self, ndx):
+        """ 
+        IDs associated with region subnets.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: IDs of subnets in region. 
+        :rtype: list of list of str
+        """
         return self._subnetIDs[ndx]
 
     def gatewayID(self, ndx):
+        """ 
+        ID of internet gateway for a region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: ID of internet gateway for an EC2 region. 
+        :rtype: str
+        """
         return self._gatewayIDs[ndx]
 
     def routeTable(self, ndx):
+        """ 
+        Route tables associated with a region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: list of route table IDs for subnets in the region. 
+        :rtype: list of str
+        """
         return self._routeTables[ndx]
 
     def rtbAssoc(self, ndx):
+        """ 
+        Route table associations for a region.
+
+        :param ndx: zero-based index of an EC2 region.
+        :type ndx: int
+        :raises IndexError: if there is no EC2 region with this index.
+        :returns: list of route table association IDs for subnets in region. 
+        :rtype: list of str
+        """
         return self._rtbAssocs[ndx]
 
 # CLASS #############################################################
+
 class Host(object):
     def __init__(self, fqdn):
         self._fqdn = fqdn
