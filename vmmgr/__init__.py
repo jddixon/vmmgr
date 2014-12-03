@@ -8,7 +8,7 @@ __all__ = [ '__version__',              '__version_date__',
             'VPC_IDS',      'VPC_CIDRS',
             'ZONES',    
             'SUBNET_IDS',   'SUBNET_CIDRS', 
-            'GATEWAY_IDS',
+            'IGATEWAY_IDS',
             # FUNCTIONS ---------------------------------------------
             '_validRegion',
             # CLASSES -----------------------------------------------
@@ -16,7 +16,7 @@ __all__ = [ '__version__',              '__version_date__',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.3.2'
+__version__      = '0.4.0'
 __version_date__ = '2014-12-01'
 
 # CONSTANTS #########################################################
@@ -53,7 +53,7 @@ SUBNET_IDS     = [ ['subnet-4f9f6c38', ],
                    ['subnet-19e2eb5f', ],
                    ]
 
-GATEWAY_IDS     = ['igw-cf32d6aa', 'igw-fb3bff9e', 
+IGATEWAY_IDS     = ['igw-cf32d6aa', 'igw-fb3bff9e', 
                    'igw-948d91f6', 'igw-9809e2fd']
 
 # a default route (and so igw) has been added to each table
@@ -83,7 +83,7 @@ def _validRegion(region):
     :param region: The name of an EC2 region.
     :type region: str
     :return: True if parameter is the name of a valid EC2 region.
-    :rtype: boolean
+    :rtype: bool
     """
     valid = False
     for r in REGIONS:
@@ -105,7 +105,7 @@ class VMMgr(object):
     :ivar _zones: List of availability zones within region.
     :ivar _subnetCIDRs: List of CIDR blocks associated with respective subnets.
     :ivar _subnetIDs: List of subnet IDs.
-    :ivar _gatewayIDs: List of internet gateways associated with respective
+    :ivar _igatewayIDs: List of internet gateways associated with respective
         subnets.
     """
     def __init__(self):
@@ -116,7 +116,7 @@ class VMMgr(object):
         self._zones         = ZONES 
         self._subnetCIDRs   = SUBNET_CIDRS
         self._subnetIDs     = SUBNET_IDS
-        self._gatewayIDs    = GATEWAY_IDS
+        self._igatewayIDs   = IGATEWAY_IDS
         self._routeTables   = ROUTE_TABLES
         self._rtbAssocs     = RTB_ASSOCS
 
@@ -204,7 +204,7 @@ class VMMgr(object):
         """
         return self._subnetIDs[ndx]
 
-    def gatewayID(self, ndx):
+    def igatewayID(self, ndx):
         """ 
         ID of internet gateway for a region.
 
@@ -214,7 +214,7 @@ class VMMgr(object):
         :returns: ID of internet gateway for an EC2 region. 
         :rtype: str
         """
-        return self._gatewayIDs[ndx]
+        return self._igatewayIDs[ndx]
 
     def routeTable(self, ndx):
         """ 

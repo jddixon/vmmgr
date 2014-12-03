@@ -4,6 +4,9 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.4.0
+    2014-12-01
+        * renamed GATEWAYS IGATEWAYS, gateways igateways            SLOC  389
 v0.3.2
     2014-12-01
         * internal documentation for vmmgr/__init__.py              SLOC  389
