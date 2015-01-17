@@ -1,4 +1,4 @@
-# vmmgr
+<h1 class="libTop">vmmgr</h1>
 
 We are set up to operate in four zones: eu-west-1, us-east-1, us-west-1,
 and us-west-2.  
@@ -13,6 +13,3 @@ a command like
 A security group has been defined for each region.  This is done by 
 adding a line to make.groups after commenting out the preceding line(s)
 and then executing the command.
-
-
-
