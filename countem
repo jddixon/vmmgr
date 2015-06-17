@@ -1,3 +1,8 @@
 cd ~/dev/py/vmmgr
 rm -rf build
-pySloc countem vmInit vmKill vmLaunch vmList vmScrub vmUpdate vmVerify
+pySloc -v \
+    txt:MANIFEST.in                             \
+    bash:countem bash:installit bash:installit  \
+    py:vmInit py:vmKill py:vmLaunch py:vmList   \
+    py:vmScrub py:vmUpdate py:vmVerify          \
+    $@
