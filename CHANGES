@@ -4,6 +4,9 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.4.2
+    2015-06-17
+        * add installit, update .gitignore                          SLOC  429
 v0.4.1
     2014-12-15
         * convert to Python 3                                       SLOC  389
