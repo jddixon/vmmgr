@@ -11,19 +11,46 @@
 <div class="content">
 <h1 class="libTop">vmmgr</h1>
 
-<p>We are set up to operate in four zones: eu-west-1, us-east-1, us-west-1,
-and us-west-2.</p>
+<p>Configuration files and Python3 scripts for managing the configuration
+of networks, instances, and volumes in Amazon&rsquo;s
+<a href="https://aws.amazon.com/ec2">EC2 cloud.</a></p>
 
-<p>A /20 is set up for each VPC.  This is 16 class Cs.  It must be properly
+<p>The python scripts use
+<a href="https://github.com/boto/boto">boto,</a>
+a package for communicating with
+<a href="https://aws.amazon.com">Amazon Web Services</a>
+(AWS), which include the EC2 cloud.</p>
+
+<p>The particular network described by the configuration files in this
+package includes
+EC2 instances in a zone in each of four resions:
+eu-west-1, us-east-1, us-west-1, and us-west-2.</p>
+
+<ul>
+<li><strong>eu-west-1</strong> is in Ireland and serves the European Union (EU) area</li>
+<li><strong>us-east-1</strong> is on the US East Coast (in or attached to MAE East)</li>
+<li><strong>us-west-1</strong> is in California</li>
+<li><strong>us-west-2</strong> is in Oregon.<br /></li>
+</ul>
+
+<p>We have <strong>VPCs</strong> (virtual private clouds) in each of these zones.</p>
+
+<p>A <code>/20</code> is set up for each VPC.  This is 16 class Cs.  It must be properly
 aligned.</p>
 
 <p>A VPC has to be defined for each region used.  This is done by executing
-a command like
-    ec2addvpc 192.168.240.0/20 &ndash;region us-west-2 &gt;&gt; vpcx</p>
+a command like</p>
 
-<p>A security group has been defined for each region.  This is done by
+<pre><code>ec2addvpc 192.168.240.0/20 --region us-west-2 &gt;&gt; vpcx
+</code></pre>
+
+<p>A <strong>security group</strong> has been defined for each region.  This is done by
 adding a line to make.groups after commenting out the preceding line(s)
 and then executing the command.</p>
+
+<h2>Project Status</h2>
+
+<p>Just a hint of a sketch.  Tests get AuthFailures.</p>
 
 <h2>Licensing</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The material on this github.io website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
