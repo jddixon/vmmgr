@@ -4,6 +4,10 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.4.3
+    2015-09-16
+        * corrected various control files, countem, MANIFEST.in     SLOC  523
+        * largely rewrote docs                                      SLOC  523
 v0.4.2
     2015-06-17
         * add installit, update .gitignore                          SLOC  429

@@ -1,9 +1,9 @@
 # see http://docs.python.org/distutils/sourcedist.html
 
 include netDistrib.conf
-include countem installit test.all
+include countem installit test.all update*
 INCLUDE CHANGES README.* TODO MANIFEST.in
-include group* make* nacl* permit* restrict* rtb* subnets update*
+include group* make* nacl* permit* restrict* rtb* subnets vpcs
 include vmInit vmKill vmLaunch vmList vmScrub vmUpdate vmVerify
 recursive-include vmmgr *.py
 global-exclude junk* .*swp 
