@@ -16,8 +16,8 @@ __all__ = [ '__version__',              '__version_date__',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.4.3'
-__version_date__ = '2015-09-16'
+__version__      = '0.4.4'
+__version_date__ = '2015-11-28'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -257,3 +257,4 @@ class EC2Host(Host):
 class LinuxBox(Host):
     def __init__(self, fqdn):
         super(LinuxBox, self).__init__(fqdn)
+
