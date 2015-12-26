@@ -1,5 +1,13 @@
 # ~/dev/py/vmmgr/TODO
 
+2015-12-26
+    * need list of instances with 
+        - names as in the DNS
+            * fqdn not necessary
+        - attributes
+            * disk size
+            * status = availability
+
 2014-12-15
     * FIX: after conversion to Python 3, get three warnings about open
         sockets (used to be AuthFailures) when running testSetup.py

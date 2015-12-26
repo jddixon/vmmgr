@@ -7,7 +7,7 @@ from argparse   import ArgumentParser
 from vmmgr   import *
 
 def listSite(cnx, fqdn):
-    print "listSite(%s) invoked" % fqdn
+    print ("listSite(%s) invoked" % fqdn)
 
 def doIt(args):
 
@@ -72,13 +72,13 @@ def main():
     # list, so we settle this first
     if args.allRegions:
         if len(args.regions) > 0:
-            print 'all regions selected, so ignoring region name(s) provided'
+            print('all regions selected, so ignoring region name(s) provided')
             args.regions = []
         args.regions = REGIONS
     else:
         for region in args.regions:
             if not _validRegion(region):
-                print "dropping %s: it's not a valid AWS region" % region
+                print("dropping %s: it's not a valid AWS region" % region)
                 args.regions.remove(region)
 
     if len(args.regions) == 0:
@@ -110,22 +110,22 @@ def main():
 
     # maybe show options and such -----------------------------------
     if args.verbose or args.justShow:
-        print "%s %s" % (appName, __version_date__)
+        print ("%s %s" % (appName, __version_date__))
 
     if args.verbose or args.justShow:
-        print 'allEntities        = ' + str(args.allEntities)
-        print '  allInstances     = ' + str(args.allInstances)
-        print '  allNetworks      = ' + str(args.allNetworks)
-        print '  allRegions       = ' + str(args.allRegions)
-        print '  allVolumes       = ' + str(args.allVolumes)
-        print 'force              = ' + str(args.force)
-        print 'testing            = ' + str(args.testing)
-        print 'verbose            = ' + str(args.verbose)
+        print('allEntities        = ' + str(args.allEntities))
+        print('  allInstances     = ' + str(args.allInstances))
+        print('  allNetworks      = ' + str(args.allNetworks))
+        print('  allRegions       = ' + str(args.allRegions))
+        print('  allVolumes       = ' + str(args.allVolumes))
+        print('force              = ' + str(args.force))
+        print('testing            = ' + str(args.testing))
+        print('verbose            = ' + str(args.verbose))
 
         if len(args.regions) > 0:
-            print 'regions:'
+            print('regions:')
             for region in args.regions:
-                print "    %s" % region
+                print("    %s" % region)
 
     if args.justShow:
         sys.exit(0)
