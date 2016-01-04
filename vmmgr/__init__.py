@@ -1,7 +1,7 @@
 # ~/py/vmmgr/__init__.py
 
 import os, sys, time
-import boto
+import boto3
 
 __all__ = [ '__version__',              '__version_date__',
             'REGIONS',      'GROUP_IDS',    
@@ -16,8 +16,8 @@ __all__ = [ '__version__',              '__version_date__',
             'Host', 'EC2Host', 'LinuxBox',
           ]
 
-__version__      = '0.4.5'
-__version_date__ = '2015-12-26'
+__version__      = '0.4.6'
+__version_date__ = '2016-01-03'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -257,5 +257,6 @@ class EC2Host(Host):
 class LinuxBox(Host):
     def __init__(self, fqdn):
         super(LinuxBox, self).__init__(fqdn)
+
 
 
