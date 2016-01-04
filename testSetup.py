@@ -2,8 +2,8 @@
 
 # testSetup.py
 
-import boto, os,  unittest
-import boto.ec2, boto.vpc
+import boto3, os,  unittest
+import boto3.ec2
 
 from vmmgr import *
 
@@ -16,13 +16,14 @@ class TestSetup (unittest.TestCase):
 
     def testVmMgrSetup(self):
         for rNdx, region in enumerate(REGIONS):
-            regionInfo = boto.ec2.get_region(region)
+            regionInfo = boto3.ec2.get_region(region)
             self.assertTrue( regionInfo is not None)
 
             # This was yielding a very misleading AuthFailure further
             # down the line because a string like 'eu-west-1' was supplied
             # instead of the corresponding EC2RegionInfo object
-            vpcCnx = boto.vpc.VPCConnection(region=regionInfo)
+            vpcCnx = boto3.ec2.create_vpc(CidrBlock= 'WORKING HERE')
+                    # VPCConnection(region=regionInfo)
             self.assertTrue(vpcCnx is not None)
 
             print("%-9s %s" % (regionInfo, VPC_CIDRS[rNdx]))

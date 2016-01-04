@@ -1,5 +1,14 @@
 # ~/dev/py/vmmgr/TODO
 
+2016-01-03
+    * pip3 install boto3                                                * DONE
+    * replace all references to boto with boto3
+
+2016-01-03 (edited from 2014-12-15)
+    * FIX: after conversion to Python 3, get three warnings about open
+        sockets (used to be AuthFailures) when running testSetup.py
+        - this is back to three AuthFailures
+
 2015-12-26
     * need list of instances with 
         - names as in the DNS
@@ -7,10 +16,6 @@
         - attributes
             * disk size
             * status = availability
-
-2014-12-15
-    * FIX: after conversion to Python 3, get three warnings about open
-        sockets (used to be AuthFailures) when running testSetup.py
 
 2014-11-30 (-28, edited)
     * region parameter is RegionInfo object.  To use string name, try

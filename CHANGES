@@ -4,6 +4,9 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.4.6
+    2016-01-03
+        * begin conversion to boto3                                 SLOC  523
 v0.4.5
     2015-12-26
         * fix dead links, edit TODO
@@ -48,5 +51,6 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
