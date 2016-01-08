@@ -2,7 +2,7 @@
 #
 # ~/dev/py/vmmgr/vmInit
 
-import boto, os, sys
+import boto3, os, sys
 from argparse   import ArgumentParser
 from vmmgr   import *
 

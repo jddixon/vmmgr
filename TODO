@@ -1,8 +1,12 @@
 # ~/dev/py/vmmgr/TODO
 
+2016-01-08 (edited from -03)
+    * get testSetup.py running, incrementally replacing boto with 
+        boto3 
+
 2016-01-03
     * pip3 install boto3                                                * DONE
-    * replace all references to boto with boto3
+    * pip3 install awscli                                               * DONE
 
 2016-01-03 (edited from 2014-12-15)
     * FIX: after conversion to Python 3, get three warnings about open

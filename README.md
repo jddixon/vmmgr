@@ -5,7 +5,7 @@ of networks, instances, and volumes in Amazon's
 [EC2 cloud.](https://aws.amazon.com/ec2)
 
 The python scripts use
-[boto,](https://github.com/boto/boto)
+[boto,](https://github.com/boto/boto3)
 a package for communicating with
 [Amazon Web Services](https://aws.amazon.com)
 (AWS), which include the EC2 cloud.
