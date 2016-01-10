@@ -62,7 +62,7 @@ class TestSetup (unittest.TestCase):
         for rNdx, rName in enumerate(REGIONS):
 
             # DEBUG
-            print("\n%s" % rName.upper())
+            print(("\n%s" % rName.upper()))
             # END
             # regionInfo = boto.ec2.get_region(rName)
             # self.assertTrue(regionInfo is not None)
@@ -90,7 +90,7 @@ class TestSetup (unittest.TestCase):
             self.assertEqual(len(igws), 1)
             igw  = igws[0]
             # DEBUG
-            print("IGW: %s" % igws[0]['InternetGatewayId'])
+            print(("IGW: %s" % igws[0]['InternetGatewayId']))
             sys.stdout.flush()
             # END
             id = igw['InternetGatewayId']
