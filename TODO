@@ -1,17 +1,21 @@
 # ~/dev/py/vmmgr/TODO
 
-2016-01-08 (edited from -03)
-    * get testSetup.py running, incrementally replacing boto with 
-        boto3 
+2016-01-09
+    * testSetup.py now gets four "ResourceWarning: unclosed 
+        <ssl.SSLSocket ... 443>"
+
+2016-01-08 (edited from -08, edited from -03)
+    * get testSetup.py running                                          * DONE
+        - incrementally replacing boto with boto3 
 
 2016-01-03
     * pip3 install boto3                                                * DONE
     * pip3 install awscli                                               * DONE
 
 2016-01-03 (edited from 2014-12-15)
-    * FIX: after conversion to Python 3, get three warnings about open
-        sockets (used to be AuthFailures) when running testSetup.py
-        - this is back to three AuthFailures
+    * FIX: after conversion to Python 3, get three warnings about open  * FIXED
+        sockets (used to be AuthFailures) when running testSetup.py     * FIXED
+        - this is back to three AuthFailures                            * FALSE
 
 2015-12-26
     * need list of instances with 
