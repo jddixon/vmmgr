@@ -7,7 +7,7 @@ from argparse   import ArgumentParser
 from vmmgr   import *
 
 def listSite(cnx, fqdn):
-    print ("listSite(%s) invoked" % fqdn)
+    print(("listSite(%s) invoked" % fqdn))
 
 def doIt(args):
 
@@ -29,20 +29,20 @@ def main():
     # program defaults ----------------------------------------------
 
     # parse the command line ----------------------------------------
-    
+
     DESC = 'list ec2 instances, volumes, and networks'
     parser = ArgumentParser(description=DESC)
 
     parser.add_argument('-A', '--allEntities', action='store_true',
         help='list all instances and volumes')
+    parser.add_argument('-D', '--allVolumes', action='store_true',
+        help='list all volumes')
     parser.add_argument('-I', '--allInstances', action='store_true',
         help='list all instances')
     parser.add_argument('-N', '--allNetworks', action='store_true',
         help='list all networks')
     parser.add_argument('-R', '--allRegions', action='store_true',
         help='list all regions')
-    parser.add_argument('-V', '--allVolumes', action='store_true',
-        help='list all volumes')
 
     parser.add_argument('-f', '--force', action='store_true',
         help='force action on otherwise protected entity')
@@ -52,6 +52,9 @@ def main():
 
     parser.add_argument('-T', '--testing', action='store_true',
         help='this is a test run')
+
+    parser.add_argument('-V', '--showVersion', action='store_true',
+        help='be chatty')
 
     parser.add_argument('-v', '--verbose', action='store_true',
         help='be chatty')
@@ -78,7 +81,7 @@ def main():
     else:
         for region in args.regions:
             if not _validRegion(region):
-                print("dropping %s: it's not a valid AWS region" % region)
+                print(("dropping %s: it's not a valid AWS region" % region))
                 args.regions.remove(region)
 
     if len(args.regions) == 0:
@@ -97,35 +100,35 @@ def main():
     # unattached volumes are listed first, by zone
     # XXX STUB
 
-    # then attached volumes are listed under the instance 
+    # then attached volumes are listed under the instance
     # XXX STUB
 
     # XXX STUB
 
-    # 
+    #
     # sanity checks -------------------------------------------------
 
     # complete setup ------------------------------------------------
     appName = 'vmList %s' % __version__
 
-    # maybe show options and such -----------------------------------
-    if args.verbose or args.justShow:
-        print ("%s %s" % (appName, __version_date__))
+    if args.showVersion:
+        print(("%s %s" % (appName, __version_date__)))
+        sys.exit(0)
 
     if args.verbose or args.justShow:
-        print('allEntities        = ' + str(args.allEntities))
-        print('  allInstances     = ' + str(args.allInstances))
-        print('  allNetworks      = ' + str(args.allNetworks))
-        print('  allRegions       = ' + str(args.allRegions))
-        print('  allVolumes       = ' + str(args.allVolumes))
-        print('force              = ' + str(args.force))
-        print('testing            = ' + str(args.testing))
-        print('verbose            = ' + str(args.verbose))
+        print(('allEntities        = ' + str(args.allEntities)))
+        print(('  allInstances     = ' + str(args.allInstances)))
+        print(('  allNetworks      = ' + str(args.allNetworks)))
+        print(('  allRegions       = ' + str(args.allRegions)))
+        print(('  allVolumes       = ' + str(args.allVolumes)))
+        print(('force              = ' + str(args.force)))
+        print(('testing            = ' + str(args.testing)))
+        print(('verbose            = ' + str(args.verbose)))
 
         if len(args.regions) > 0:
             print('regions:')
             for region in args.regions:
-                print("    %s" % region)
+                print(("    %s" % region))
 
     if args.justShow:
         sys.exit(0)
@@ -133,7 +136,7 @@ def main():
     # do what's required --------------------------------------------
     doIt(args)
 
-        
+
 if __name__ == '__main__':
     main()
 

@@ -38,4 +38,3 @@ and then executing the command.
 
 Just a hint of a sketch.  Tests get AuthFailures.
 
-## On-line Documentation

@@ -9,12 +9,12 @@ __version__ = re.search("__version__\s*=\s*'(.*)'",
 
 # see http://docs.python.org/distutils/setupscript.html
 
-setup ( name         = 'vmmgr', 
+setup ( name         = 'vmmgr',
         version      = __version__,
         author       = 'Jim Dixon',
         author_email = 'jddixon@gmail.com',
         py_modules   = [ ],
-        packages     = ['vmmgr'], 
+        packages     = ['vmmgr'],
         # following could be in scripts/ subdir
         scripts      = ['vmList'],
         # MISSING url

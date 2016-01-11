@@ -4,6 +4,14 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.5.0
+    2016-01-11
+        * add -V/--showVersion, -z/--doNothing options              SLOC  552
+        * skeletal vmKill, vmLanch, vmScrub, vmUpdate, vmVerify     SLOC  962
+v0.4.9
+    2016-01-10
+        * vmInit, vmList converted to Python3
+        * testSetup.py for python3, boto3 succeeds                  SLOC  543
 v0.4.8
     2016-01-09
         * boto3 version of testSetup (skeletal)                     SLOC  543
@@ -57,6 +65,8 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
+
 
 
 

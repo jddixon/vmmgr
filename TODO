@@ -1,8 +1,10 @@
 # ~/dev/py/vmmgr/TODO
 
-2016-01-09
+2016-01-11 (edited from -09)
     * testSetup.py now gets four "ResourceWarning: unclosed 
         <ssl.SSLSocket ... 443>"
+        - this makes the software useless for many applications
+            and is a CRITICAL FAULT
 
 2016-01-08 (edited from -08, edited from -03)
     * get testSetup.py running                                          * DONE
