@@ -4,6 +4,9 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.5.1
+    2016-02-01
+        * minor edits                                               SLOC  962
 v0.5.0
     2016-01-11
         * add -V/--showVersion, -z/--doNothing options              SLOC  552
@@ -65,6 +68,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

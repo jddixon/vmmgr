@@ -1,5 +1,7 @@
 <h1 class="libTop">vmmgr</h1>
 
+## General
+
 Configuration files and Python3 scripts for managing the configuration
 of networks, instances, and volumes in Amazon's
 [EC2 cloud.](https://aws.amazon.com/ec2)
@@ -34,7 +36,24 @@ A **security group** has been defined for each region.  This is done by
 adding a line to make.groups after commenting out the preceding line(s)
 and then executing the command.
 
+## Utilities
+
+### VmInit
+
+### VmKill
+
+### vmLaunch
+
+### vmList
+
+### vmScrub
+
+### vmUpdate
+
+### vmVerify
+
 ## Project Status
 
-Just a hint of a sketch.  Tests get AuthFailures.
+Just a hint of a sketch.  Tests get ResourceWarnings due to unclosed
+SSL sockets.
 

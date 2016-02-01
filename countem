@@ -1,6 +1,8 @@
 cd ~/dev/py/vmmgr
-rm -rf build
-pySloc $@ -v \
+
+rm -rf build\*
+
+pySloc -v $@                                            \
     txt:MANIFEST.in                                     \
     txt:groups txt:group.binders txt:group.default      \
     txt:nacl-eu txt:nacl-use txt:nacl-usw1              \
@@ -12,3 +14,5 @@ pySloc $@ -v \
     bash:countem bash:installit bash:installit test.all \
     py:vmInit py:vmKill py:vmLaunch py:vmList           \
     py:vmScrub py:vmUpdate py:vmVerify
+
+

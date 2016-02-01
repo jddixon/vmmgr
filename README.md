@@ -54,7 +54,7 @@ and then executing the command.
 
 ## Project Status
 
-Just a hint of a sketch.  Tests get ResourceWarnings due to unclosed 
+Just a hint of a sketch.  Tests get ResourceWarnings due to unclosed
 SSL sockets.
 
 ## On-line Documentation
