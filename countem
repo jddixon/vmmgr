@@ -10,8 +10,8 @@ pySloc -v $@                                            \
     txt:restrict_group txt:restrict_groups              \
     txt:rtb.eu txt:rtb.use txt:rtb.usw1 txt:rtb.usw2    \
     txt:subnets txt:vpcs                                \
+    bash:auto8it bash:countem bash:installit bash:installit test.all \
     bash:update.vpcs                                    \
-    bash:countem bash:installit bash:installit test.all \
     py:vmInit py:vmKill py:vmLaunch py:vmList           \
     py:vmScrub py:vmUpdate py:vmVerify
 

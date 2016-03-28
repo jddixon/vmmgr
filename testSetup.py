@@ -2,21 +2,26 @@
 
 # testSetup.py
 
-import os, sys, unittest
+import os
+import sys
+import unittest
 
 # SHOULD DROP:
 import boto
-import boto.ec2, boto.vpc
+import boto.ec2
+import boto.vpc
 # END SHOULD
 
 import boto3
 
 from vmmgr import *
 
+
 class TestSetup (unittest.TestCase):
 
     def setUp(self):
         pass
+
     def tearDown(self):
         pass
 
@@ -38,14 +43,16 @@ class TestSetup (unittest.TestCase):
             igws = vpcCnx.get_all_internet_gateways()
             self.assertEqual(len(igws), 1)
             self.assertEqual(str(igws[0]),
-                                'InternetGateway:' +IGATEWAY_IDS[rNdx])
+                             'InternetGateway:' + IGATEWAY_IDS[rNdx])
 
             for zNdx, zone in enumerate(ZONES[rNdx]):
-                print("    zone %s, cidr %s" % (zone, SUBNET_CIDRS[rNdx][zNdx]))
-                #sub = vpcCnx.create_subnet(VPC_IDS[rNdx],
+                print(
+                    "    zone %s, cidr %s" %
+                    (zone, SUBNET_CIDRS[rNdx][zNdx]))
+                # sub = vpcCnx.create_subnet(VPC_IDS[rNdx],
                 #        SUBNET_CIDRS[rNdx][zNdx],
                 #        availability_zone=zone)
-                #print "SUBNET: %z" % sub
+                # print "SUBNET: %z" % sub
 
             # HACK, no apparent effect
             vpcCnx.close()
@@ -58,7 +65,7 @@ class TestSetup (unittest.TestCase):
         # are a known problem; there appears to be no way to easily
         # get rid of them.  Due to Python3/urllib3 connection pooling,
         # which is a Good Thing.
-        
+
         for rNdx, rName in enumerate(REGIONS):
 
             # DEBUG
@@ -77,7 +84,7 @@ class TestSetup (unittest.TestCase):
 
             vpc = ec2.Vpc(VPC_IDS[rNdx])    # gets a ResourceWarning
             self.assertTrue(vpc is not None)
-            self.assertEqual( vpc.cidr_block, VPC_CIDRS[rNdx])
+            self.assertEqual(vpc.cidr_block, VPC_CIDRS[rNdx])
 
             # alternative approach ----------------------------------
 
@@ -88,7 +95,7 @@ class TestSetup (unittest.TestCase):
             desc = client.describe_internet_gateways()
             igws = desc['InternetGateways']
             self.assertEqual(len(igws), 1)
-            igw  = igws[0]
+            igw = igws[0]
             # DEBUG
             print(("IGW: %s" % igws[0]['InternetGatewayId']))
             sys.stdout.flush()
@@ -97,17 +104,17 @@ class TestSetup (unittest.TestCase):
             self.assertEqual(id, IGATEWAY_IDS[rNdx])
 
             # AVAILABILITY ZONES --------------------------
-            #for zNdx, zone in enumerate(ZONES[rNdx]):
+            # for zNdx, zone in enumerate(ZONES[rNdx]):
             #    print("    zone %s, cidr %s" % (zone, SUBNET_CIDRS[rNdx][zNdx]))
-                # SUBNETS -----------------------
+            # SUBNETS -----------------------
             #    #sub = vpcCnx.create_subnet(VPC_IDS[rNdx],
             #    #        SUBNET_CIDRS[rNdx][zNdx],
             #    #        availability_zone=zone)
             #    #print "SUBNET: %z" % sub
 
-                # INSTANCES ---------------------
+            # INSTANCES ---------------------
 
-                # VOLUMES -----------------------
+            # VOLUMES -----------------------
 
 if __name__ == '__main__':
     unittest.main()
