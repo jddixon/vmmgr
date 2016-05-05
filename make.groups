@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #ec2addgrp vpc-binders -d 'servers supporting dns, smtp, xlReg' -c  vpc-e248bc87 --region eu-west-1 >groups
 #ec2addgrp vpc-binders -d 'servers supporting dns, smtp, xlReg' -c  vpc-e975af8c --region us-east-1 >>groups
 #ec2addgrp vpc-binders -d 'servers supporting dns, smtp, xlReg' -c  vpc-07e70762 --region us-west-1 >>groups

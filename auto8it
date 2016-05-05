@@ -1,3 +1,3 @@
-cd / home / jdd / dev / py / auto8it
+cd $DEV_BASE/py/vmmgr
 
-autopep8 - air auto8it * .py
+autopep8 -air vmmgr *.py

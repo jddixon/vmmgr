@@ -4,6 +4,9 @@
 # use 'countem" to count lines - this invokes rm -rf build/
 #--------------------------------------------------------------------
 
+v0.5.4
+    2016-05-04
+        * added .dvcz, projCfg*                                     SLOC 1029
 v0.5.3
     2016-03-28
         * add and execute auto8it                                   SLOC  964
@@ -74,6 +77,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

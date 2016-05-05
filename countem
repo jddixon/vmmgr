@@ -1,18 +1,7 @@
-cd ~/dev/py/vmmgr
+#!/usr/bin/env bash
 
-rm -rf build\*
+cd $DEV_BASE/py/vmmgr
 
-pySloc -v $@                                            \
-    txt:MANIFEST.in                                     \
-    txt:groups txt:group.binders txt:group.default      \
-    txt:nacl-eu txt:nacl-use txt:nacl-usw1              \
-    txt:permit.587                                      \
-    txt:restrict_group txt:restrict_groups              \
-    txt:rtb.eu txt:rtb.use txt:rtb.usw1 txt:rtb.usw2    \
-    txt:subnets txt:vpcs                                \
-    bash:auto8it bash:countem bash:installit bash:installit test.all \
-    bash:update.vpcs                                    \
-    py:vmInit py:vmKill py:vmLaunch py:vmList           \
-    py:vmScrub py:vmUpdate py:vmVerify
+rm -rf build/* 
 
-
+pySloc  -X dist -v $@
