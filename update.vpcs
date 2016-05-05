@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ec2dvpc --region eu-west-1   > vpcs
 ec2dvpc --region us-east-1   >> vpcs-east
 ec2dvpc --region us-west-1   >> vpcs-west

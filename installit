@@ -1,1 +1,3 @@
+cd $DEV_BASE/py/vmmgr
+
 ./setup.py build sdist && sudo ./setup.py install
