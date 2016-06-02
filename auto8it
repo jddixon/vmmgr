@@ -1,3 +1,0 @@
-cd $DEV_BASE/py/vmmgr
-
-autopep8 -air vmmgr *.py

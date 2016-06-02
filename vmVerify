@@ -2,18 +2,22 @@
 #
 # ~/dev/py/vmmgr/vmVerify
 
-import boto3, os, sys
-from argparse   import ArgumentParser
-from vmmgr   import *
+import boto3
+import os
+import sys
+from argparse import ArgumentParser
+from vmmgr import *
+
 
 def doIt(args):
 
-    force       = args.force
-    testing     = args.testing
-    verbose     = args.verbose
-    regions     = args.regions
+    force = args.force
+    testing = args.testing
+    verbose = args.verbose
+    regions = args.regions
 
     # XXX WORKING HERE
+
 
 def main():
     """
@@ -30,51 +34,51 @@ def main():
     parser = ArgumentParser(description=DESC)
 
     parser.add_argument('-A', '--allEntities', action='store_true',
-        help='initialize all instances and volumes')
+                        help='initialize all instances and volumes')
     parser.add_argument('-D', '--allVolumes', action='store_true',
-        help='initialize all volumes')
+                        help='initialize all volumes')
     parser.add_argument('-I', '--allInstances', action='store_true',
-        help='initialize all instances')
+                        help='initialize all instances')
     parser.add_argument('-N', '--allNetworks', action='store_true',
-        help='initialize all networks')
+                        help='initialize all networks')
     parser.add_argument('-R', '--allRegions', action='store_true',
-        help='initialize all regions')
+                        help='initialize all regions')
 
     parser.add_argument('-f', '--force', action='store_true',
-        help='force action on otherwise protected entity')
+                        help='force action on otherwise protected entity')
 
     parser.add_argument('-j', '--justShow', action='store_true',
-        help='show options and exit')
+                        help='show options and exit')
 
     parser.add_argument('-T', '--testing', action='store_true',
-        help='this is a test run')
+                        help='this is a test run')
 
     parser.add_argument('-V', '--showVersion', action='store_true',
-        help='print version info and exit')
+                        help='print version info and exit')
 
     parser.add_argument('-v', '--verbose', action='store_true',
-        help='be chatty')
+                        help='be chatty')
 
     parser.add_argument('-z', '--doNothing', action='store_true',
-        help="just report problems, don't change anything")
+                        help="just report problems, don't change anything")
 
     parser.add_argument('regions', nargs='*',
-        help='any number of valid region names')
+                        help='any number of valid region names')
 
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
     if args.allEntities:
         args.allInstances = True
-        args.allNetworks  = True
-        args.allRegions   = True
-        args.allVolumes   = True
+        args.allNetworks = True
+        args.allRegions = True
+        args.allVolumes = True
 
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first
     if args.allRegions:
         if len(args.regions) > 0:
-            print ('all regions selected, so ignoring region name(s) provided')
+            print('all regions selected, so ignoring region name(s) provided')
             args.regions = []
         args.regions = REGIONS
     else:
@@ -113,7 +117,6 @@ def main():
             for region in args.regions:
                 print("    %s" % region)
 
-
     if args.justShow:
         sys.exit(0)
 
@@ -123,4 +126,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
