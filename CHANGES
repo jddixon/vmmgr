@@ -1,9 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
-#
-#--------------------------------------------------------------------
-# use 'countem" to count lines - this invokes rm -rf build/
-#--------------------------------------------------------------------
 
+v0.5.5
+    2016-06-02
+        * add bkp2U, other bash scripts                             SLOC 1091
 v0.5.4
     2016-05-04
         * added .dvcz, projCfg*                                     SLOC 1029
@@ -77,6 +76,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

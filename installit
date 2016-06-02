@@ -1,3 +1,11 @@
-cd $DEV_BASE/py/vmmgr
+#!/usr/bin/env bash
 
-./setup.py build sdist && sudo ./setup.py install
+if [ ! -z "${DEV_BASE// }" ]
+then
+  cd $DEV_BASE/py/vmmgr
+  
+  ./setup.py build sdist && sudo ./setup.py install
+  
+else
+  echo "DEV_BASE is not defined"
+fi
