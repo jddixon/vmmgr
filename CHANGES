@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.6
+    2016-06-29
+        * add ghpDoc/{css,img}/                                     SLOC 1640
 v0.5.5
     2016-06-02
         * add bkp2U, other bash scripts                             SLOC 1091
@@ -76,6 +79,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

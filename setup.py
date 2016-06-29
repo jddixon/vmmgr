@@ -17,5 +17,9 @@ setup(name='vmmgr',
       packages=['vmmgr'],
       # following could be in scripts/ subdir
       scripts=['vmList'],
-      # MISSING url
+      # MISSING description
+      classifiers=[
+          'License :: OSI Approved :: MIT License',
+          'Programming Language :: Python :: 3',
+      ],
       )
