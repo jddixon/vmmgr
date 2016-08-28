@@ -17,9 +17,16 @@ setup(name='vmmgr',
       packages=['vmmgr'],
       # following could be in scripts/ subdir
       scripts=['vmList'],
-      # MISSING description
+      description='tools for managing VMs in EC2 cloud',
+      url='https:/jddixon.github.io/vmmgr',
       classifiers=[
+          'Development Status :: 2 - Pre-Alpha',
+          'Development Status :: 3 - Alpha',
+          'Development Status :: 4 - Beta',
+          'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
-          'Programming Language :: Python :: 3',
+          'Natural Language :: English',
+          'Programming Language :: Python 3',
+          'Topic :: Software Development :: Libraries :: Python Modules',
       ],
       )

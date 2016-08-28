@@ -7,25 +7,26 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-vmmgr v0.5.6
-2016-06-29 17:06:40
-# START CONTENT #
+vmmgr v0.5.7
+2016-08-28 23:08:50
+# BEGIN CONTENT #
 vmmgr
- .copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
  .dvcz
-  builds 31dc31bbd43c167e8a66c2da2fd7e5c9cc4a5cf2
-  lastBuildList 1adeb62b5c4003e0d847db28b1da07e67dc68272
-  projCfg f7cea732da4963dd8c6810902534bd54a414b6ee
-  projCfg.local 8e749331ef343d7b109311ef66131679979e3226
-  version 9dcd10e6a51b506bfdeb5c62ee49e84793639299
- .gitignore 5f1a04317952b671c5828218c6efe88c2594f8fb
- CHANGES 98542db4b6401dad2c09fbcd3ead155f1efd1fb0
- LICENSE.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
+  builds b06f0dc009e37a7b5bbb66892aea2ad6c660c623
+  copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
+  lastBuildList 15cfa5642a8fa23da8aeeeb352c72eb663c23dea
+  license 5977a55c75bb4612004451a56b0b4c22d9d3311d
+  projCfg 83b75b1e5d3fb883c1d4afc5206fa16178ce9ccd
+  projCfg.local 0f9575b41114e870c289300178e7d230584f2031
+  version 41d76c0b86f43ab8520185b044fe311f3890e67f
+ .gitignore a654abfcb437fa0397f274b6c338c509ab86acf2
+ CHANGES 98b30f06a934b9e8890f94892e695c876cf2c091
+ LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  MANIFEST.in 52a150519c4c8afb2e1b2c0a3b03ce6d68923265
  README.md 2c4f0bd28d895ce99a1aae49128ef8b93f3f0337
  TODO 12612eb15c1d1211568ee5661eb45784ae591d14
  bkp2U f73732fba990ad770cb8d7b23b34229e40c00df0
- countem 35fcd9f6a30168b44b01ab188b3920b926d10394
+ countem 06cd5f86fb69086726d984001fdbb8bbb9bc13e9
  dist
   vmmgr-0.2.0.tar.gz 61f57d634628a5b0fe06df9282ff75e5ee77e95f
   vmmgr-0.3.2.tar.gz 64b5c6ff9805f68ce7377121d5d3bfb1c858d2a5
@@ -44,6 +45,7 @@ vmmgr
   vmmgr-0.5.4.tar.gz 8ceef7dde775fe6cecbe04af2c4eb41aa15c11d4
   vmmgr-0.5.5.tar.gz 3706b474506a416b98f2296d7f6f650087e70c80
   vmmgr-0.5.6.tar.gz fc478342191f481d2764d27bd47555b43ed62bb1
+  vmmgr-0.5.7.tar.gz d0ba99901a5fb28949b8398c38001bdb0b2d7259
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -76,7 +78,7 @@ vmmgr
  rtb.use 7a2537a8dcd4842e82204161d3528e39cdb9131a
  rtb.usw1 400f9fdaac17e4887d256392d31b34378d5c9cdc
  rtb.usw2 b5c9cbbefb18b0971d5a7cd26cdfc408c5b3d949
- setup.py 26eb45d232e08b0de79c7483f3191a6f0c1fba1a
+ setup.py 2d8b9d57200b1807a44dbc292abcad20848640ae
  styleit 913e3d8531cf83076a5b6272ef1424323e1f39a9
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
  test.all d00e6ca8b4cb7385ca044b7bfd029897e10c3acf
@@ -90,8 +92,8 @@ vmmgr
  vmUpdate 9c05ddd41ae4406fed22f7d472d97548e04c953e
  vmVerify 8379886f58a44fd50a290eafe7f323d20d66c684
  vmmgr
-  __init__.py 57b4a0d5a1292e7e35f7b87c3ae0816252779c75
+  __init__.py fabac72f2deacc232e9d051f02f735ccd0f4d8cc
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-lRJs7CLZaRh02FksJkuPlrNAEZ3xRlMr917gtAB6EkdtzRrudDPaC551xUxbJNWK2VUXHDUzTv/QZMibeqmsVU8IX78U0kXP5vn+Ol0nFJyGMlXNmRl4isIsxNKS0pHAwj9bf+8AiQIOZKeGavEv7WrxXlLYzz+ROzPAaRCh2AjmATB3C4643B1NQMEkw1kPYsQsXrCa7Yt93jmV5LQ3Bsiq3lBP7T5X0ypwu+UOzH8Y4rToCqdE4kjbwR4QvFgWg1jaaF+u+LdUDSE8uOeqtdPvZAo/zseVyiPvLWCnjGdDI9n58plmM2zZndeRawFlZrQuZxJN87t+Zv0yCHyX6Q==
+jYvwBBZy3Xe3HkEVPvsbJukx4dd7FnDkZtR7jRaoeLG5dYViN9Dt0h84t3PJhzni0zLGeJ6hRhgXz/OnDAtYdHizdwjqz7DB+jORUXRNlve2Au9Oz3d6Y/Bd1DrkKiXleuR8b6emP93nXQvmKkGliu/xljPhdYcU1hdXhYjFyIVpecg1I7OdEAKbVEX5Q6BFg+a71nJ+ciVTsar3XlyS0e/bfTl/ltJyyocq10ApBvbr55yKbJ2Hto/ne8lmTOUfnzlbdwK0jTfE/IPFXucJ3iYTpF03T0eYYdzDRP7WnGkaCAPR6fjtY5wj8LRhhN8Ttqpw20X09Fo7TeawlQybIA==
