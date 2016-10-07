@@ -6,7 +6,7 @@ then
   
   rm -rf build/* 
   
-  pySloc -L py vmList  -X dist -v $@
+  pySloc -L py vm_init vm_kill vm_lauch vm_list vm_scrub vm_update vm_verify  -X cover -X htmlcov -X dist -v $@
 else
   echo "DEV_BASE is not defined"
 fi

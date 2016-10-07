@@ -1,25 +1,33 @@
 #!/usr/bin/python3
 #
-# ~/dev/py/vmmgr/vmList
+# ~/dev/py/vmmgr/vm_list
 
-import boto3
-import os
+""" List entities on the network. """
+
 import sys
 from argparse import ArgumentParser
-from vmmgr import *
+
+# import boto3
+from vmmgr import (__version__, __version_date__,
+                   valid_region,
+                   REGIONS)
 
 
-def listSite(cnx, fqdn):
-    print(("listSite(%s) invoked" % fqdn))
+def list_site(cnx, fqdn):
+    """
+    List information on a given site, given its fully qualified domaina
+    name (fqdn).
+    """
+    print(("list_site(%s) invoked" % fqdn))
 
 
-def doIt(args):
-
+def do_it(args):
+    """ Actually carry out the action. """
     force = args.force
     testing = args.testing
     verbose = args.verbose
     regions = args.regions
-    cnx = boto3.connect_s3()
+    # cnx = boto3.connect_s3()  # no such function
 
     # XXX STUB XXX
 
@@ -27,7 +35,7 @@ def doIt(args):
 def main():
     """
     Expect a command like
-        vmList [options] [region[ region]*]
+        vm_list [options] [region[ region]*]
 
     """
 
@@ -35,30 +43,30 @@ def main():
 
     # parse the command line ----------------------------------------
 
-    DESC = 'list ec2 instances, volumes, and networks'
-    parser = ArgumentParser(description=DESC)
+    desc = 'list ec2 instances, volumes, and networks'
+    parser = ArgumentParser(description=desc)
 
-    parser.add_argument('-A', '--allEntities', action='store_true',
+    parser.add_argument('-A', '--all_entities', action='store_true',
                         help='list all instances and volumes')
-    parser.add_argument('-D', '--allVolumes', action='store_true',
+    parser.add_argument('-D', '--all_volumes', action='store_true',
                         help='list all volumes')
-    parser.add_argument('-I', '--allInstances', action='store_true',
+    parser.add_argument('-I', '--all_instances', action='store_true',
                         help='list all instances')
-    parser.add_argument('-N', '--allNetworks', action='store_true',
+    parser.add_argument('-N', '--all_networks', action='store_true',
                         help='list all networks')
-    parser.add_argument('-R', '--allRegions', action='store_true',
+    parser.add_argument('-R', '--all_regions', action='store_true',
                         help='list all regions')
 
     parser.add_argument('-f', '--force', action='store_true',
                         help='force action on otherwise protected entity')
 
-    parser.add_argument('-j', '--justShow', action='store_true',
+    parser.add_argument('-j', '--just_show', action='store_true',
                         help='show options and exit')
 
     parser.add_argument('-T', '--testing', action='store_true',
                         help='this is a test run')
 
-    parser.add_argument('-V', '--showVersion', action='store_true',
+    parser.add_argument('-V', '--show_version', action='store_true',
                         help='be chatty')
 
     parser.add_argument('-v', '--verbose', action='store_true',
@@ -70,22 +78,22 @@ def main():
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
-    if args.allEntities:
-        args.allInstances = True
-        args.allNetworks = True
-        args.allRegions = True
-        args.allVolumes = True
+    if args.all_entities:
+        args.all_instances = True
+        args.all_networks = True
+        args.all_regions = True
+        args.all_volumes = True
 
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first
-    if args.allRegions:
+    if args.all_regions:
         if len(args.regions) > 0:
             print('all regions selected, so ignoring region name(s) provided')
             args.regions = []
         args.regions = REGIONS
     else:
         for region in args.regions:
-            if not _validRegion(region):
+            if not valid_region(region):
                 print(("dropping %s: it's not a valid AWS region" % region))
                 args.regions.remove(region)
 
@@ -114,18 +122,18 @@ def main():
     # sanity checks -------------------------------------------------
 
     # complete setup ------------------------------------------------
-    appName = 'vmList %s' % __version__
+    app_name = 'vm_list %s' % __version__
 
-    if args.showVersion:
-        print(("%s %s" % (appName, __version_date__)))
+    if args.show_version:
+        print(("%s %s" % (app_name, __version_date__)))
         sys.exit(0)
 
-    if args.verbose or args.justShow:
-        print(('allEntities        = ' + str(args.allEntities)))
-        print(('  allInstances     = ' + str(args.allInstances)))
-        print(('  allNetworks      = ' + str(args.allNetworks)))
-        print(('  allRegions       = ' + str(args.allRegions)))
-        print(('  allVolumes       = ' + str(args.allVolumes)))
+    if args.verbose or args.just_show:
+        print(('all_entities        = ' + str(args.all_entities)))
+        print(('  all_instances     = ' + str(args.all_instances)))
+        print(('  all_networks      = ' + str(args.all_networks)))
+        print(('  all_regions       = ' + str(args.all_regions)))
+        print(('  all_volumes       = ' + str(args.all_volumes)))
         print(('force              = ' + str(args.force)))
         print(('testing            = ' + str(args.testing)))
         print(('verbose            = ' + str(args.verbose)))
@@ -135,11 +143,11 @@ def main():
             for region in args.regions:
                 print(("    %s" % region))
 
-    if args.justShow:
+    if args.just_show:
         sys.exit(0)
 
     # do what's required --------------------------------------------
-    doIt(args)
+    do_it(args)
 
 
 if __name__ == '__main__':

@@ -1,10 +1,18 @@
 # ~/dev/py/vmmgr/TODO
 
+2016-10-07
+    * checkCoverage is checking boto3 !
+
+2016-09-17
+    * sudo pip3 install boto3                                           * DONE
+    * sudo pip3 install awscli                                          * DONE
+
 2016-01-11 (edited from -09)
-    * testSetup.py now gets four "ResourceWarning: unclosed 
-        <ssl.SSLSocket ... 443>"
-        - this makes the software useless for many applications
-            and is a CRITICAL FAULT
+    * testSetup.py now gets four "ResourceWarning: unclosed 			* FIXED
+        <ssl.SSLSocket ... 443>"			                            * FIXED
+        - this makes the software useless for many applications			* FIXED
+            and is a CRITICAL FAULT			                            * FIXED
+        - crude fix: add warnings='ignore' to unittest.main()			* FIXED
 
 2016-01-08 (edited from -08, edited from -03)
     * get testSetup.py running                                          * DONE
