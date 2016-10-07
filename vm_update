@@ -2,14 +2,18 @@
 #
 # ~/dev/py/vmmgr/vmUpdate
 
-import boto3
-import os
+""" Update network entities. """
+
 import sys
 from argparse import ArgumentParser
-from vmmgr import *
+
+from vmmgr import (__version__, __version_date__,
+                   valid_region,
+                   REGIONS)
 
 
-def doIt(args):
+def do_it(args):
+    """ Actually carry out the action. """
 
     force = args.force
     testing = args.testing
@@ -30,36 +34,36 @@ def main():
 
     # parse the command line ----------------------------------------
 
-    DESC = 'NEED BRIEF DESC'
-    parser = ArgumentParser(description=DESC)
+    desc = 'Update network entities.'
+    parser = ArgumentParser(description=desc)
 
-    parser.add_argument('-A', '--allEntities', action='store_true',
+    parser.add_argument('-A', '--all_entities', action='store_true',
                         help='initialize all instances and volumes')
-    parser.add_argument('-D', '--allVolumes', action='store_true',
+    parser.add_argument('-D', '--all_volumes', action='store_true',
                         help='initialize all volumes')
-    parser.add_argument('-I', '--allInstances', action='store_true',
+    parser.add_argument('-I', '--all_instances', action='store_true',
                         help='initialize all instances')
-    parser.add_argument('-N', '--allNetworks', action='store_true',
+    parser.add_argument('-N', '--all_networks', action='store_true',
                         help='initialize all networks')
-    parser.add_argument('-R', '--allRegions', action='store_true',
+    parser.add_argument('-R', '--all_regions', action='store_true',
                         help='initialize all regions')
 
     parser.add_argument('-f', '--force', action='store_true',
                         help='force action on otherwise protected entity')
 
-    parser.add_argument('-j', '--justShow', action='store_true',
+    parser.add_argument('-j', '--just_show', action='store_true',
                         help='show options and exit')
 
     parser.add_argument('-T', '--testing', action='store_true',
                         help='this is a test run')
 
-    parser.add_argument('-V', '--showVersion', action='store_true',
+    parser.add_argument('-V', '--show_version', action='store_true',
                         help='print version info and exit')
 
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='be chatty')
 
-    parser.add_argument('-z', '--doNothing', action='store_true',
+    parser.add_argument('-z', '--do_nothing', action='store_true',
                         help="just report problems, don't change anything")
 
     parser.add_argument('regions', nargs='*',
@@ -68,22 +72,22 @@ def main():
     args = parser.parse_args()
 
     # fixups --------------------------------------------------------
-    if args.allEntities:
-        args.allInstances = True
-        args.allNetworks = True
-        args.allRegions = True
-        args.allVolumes = True
+    if args.all_entities:
+        args.all_instances = True
+        args.all_networks = True
+        args.all_regions = True
+        args.all_volumes = True
 
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first
-    if args.allRegions:
+    if args.all_regions:
         if len(args.regions) > 0:
             print('all regions selected, so ignoring region name(s) provided')
             args.regions = []
         args.regions = REGIONS
     else:
         for region in args.regions:
-            if not _validRegion(region):
+            if not valid_region(region):
                 print(("dropping %s: it's not a valid AWS region" % region))
                 args.regions.remove(region)
 
@@ -95,19 +99,19 @@ def main():
     # sanity checks -------------------------------------------------
 
     # complete setup ------------------------------------------------
-    appName = 'vmUpdate %s' % __version__
+    app_name = 'vmUpdate %s' % __version__
 
-    if args.showVersion:
-        print(("%s %s" % (appName, __version_date__)))
+    if args.show_version:
+        print(("%s %s" % (app_name, __version_date__)))
         sys.exit(0)
 
-    if args.verbose or args.justShow:
-        print('allEntities        = ' + str(args.allEntities))
-        print('  allInstances     = ' + str(args.allInstances))
-        print('  allNetworks      = ' + str(args.allNetworks))
-        print('  allRegions       = ' + str(args.allRegions))
-        print('  allVolumes       = ' + str(args.allVolumes))
-        print('doNothing          = ' + str(args.doNothing))
+    if args.verbose or args.just_show:
+        print('all_entities        = ' + str(args.all_entities))
+        print('  all_instances     = ' + str(args.all_instances))
+        print('  all_networks      = ' + str(args.all_networks))
+        print('  all_regions       = ' + str(args.all_regions))
+        print('  all_volumes       = ' + str(args.all_volumes))
+        print('do_nothing          = ' + str(args.do_nothing))
         print('force              = ' + str(args.force))
         print('testing            = ' + str(args.testing))
         print('verbose            = ' + str(args.verbose))
@@ -117,11 +121,11 @@ def main():
             for region in args.regions:
                 print("    %s" % region)
 
-    if args.justShow:
+    if args.just_show:
         sys.exit(0)
 
     # do what's required --------------------------------------------
-    doIt(args)
+    do_it(args)
 
 
 if __name__ == '__main__':

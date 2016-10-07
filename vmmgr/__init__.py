@@ -1,5 +1,7 @@
 # ~/py/vmmgr/__init__.py
 
+""" Virtual Machine Manager (vmmgr) module. """
+
 import os
 import sys
 import time
@@ -12,14 +14,14 @@ __all__ = ['__version__', '__version_date__',
            'SUBNET_IDS', 'SUBNET_CIDRS',
            'IGATEWAY_IDS',
            # FUNCTIONS ---------------------------------------------
-           '_validRegion',
+           'valid_region',
            # CLASSES -----------------------------------------------
            'VMMgr',
            'Host', 'EC2Host', 'LinuxBox',
            ]
 
-__version__ = '0.5.7'
-__version_date__ = '2016-08-28'
+__version__ = '0.5.8'
+__version_date__ = '2016-10-07'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -75,11 +77,10 @@ RTB_ASSOCS = [['rtbassoc-afc833ca', ],
               # this is for the local rtb
               ['rtbassoc-09d7176c', ],
               ]
-
 # FUNCTIONS #########################################################
 
 
-def _validRegion(region):
+def valid_region(region):
     """
     Whether a region name is valid.
 
@@ -89,8 +90,8 @@ def _validRegion(region):
     :rtype: bool
     """
     valid = False
-    for r in REGIONS:
-        if region == r:
+    for r__ in REGIONS:
+        if region == r__:
             valid = True
             break
     return valid
@@ -115,15 +116,15 @@ class VMMgr(object):
 
     def __init__(self):
         self._regions = REGIONS
-        self._groupIDs = GROUP_IDS
-        self._vpcIDs = VPC_IDS
-        self._vpcCIDRs = VPC_CIDRS
+        self._group_ids = GROUP_IDS
+        self._vpc_ids = VPC_IDS
+        self._vpc_cidrs = VPC_CIDRS
         self._zones = ZONES
-        self._subnetCIDRs = SUBNET_CIDRS
-        self._subnetIDs = SUBNET_IDS
-        self._igatewayIDs = IGATEWAY_IDS
-        self._routeTables = ROUTE_TABLES
-        self._rtbAssocs = RTB_ASSOCS
+        self._subnet_cidrs = SUBNET_CIDRS
+        self._subnet_ids = SUBNET_IDS
+        self._igateway_ids = IGATEWAY_IDS
+        self._route_tables = ROUTE_TABLES
+        self._rtb_assocs = RTB_ASSOCS
 
     def region(self, ndx):
         """
@@ -137,9 +138,17 @@ class VMMgr(object):
         """
         return self._regions[ndx]
 
+    # OBSOLETE ------------------------------------------------------
+
     def groupID(self, ndx):
         """
         ID of security group for region.
+        """
+        return self.group_id(ndx)
+
+    def vpcID(self, ndx):
+        """
+        ID of virtual private cloud (VPD) for region.
 
         :param ndx: zero-baseds index of an EC2 region.
         :type ndx: int
@@ -147,9 +156,54 @@ class VMMgr(object):
         :returns: the security group ID corresponding to the index.
         :rtype: str
         """
-        return self._groupIDs[ndx]
+        return self.vpc_id(ndx)
 
-    def vpcID(self, ndx):
+    def vpcCIDR(self, ndx):
+        """
+        Main CIDR block for the region.
+        """
+        return self.vpc_cidr(ndx)
+
+    def subnetCIDR(self, ndx):
+        """
+        CIDR blocks used by subnets within the rgion.
+        """
+        return self.subnet_cidr(ndx)
+
+    def subnetID(self, ndx):
+        """
+        IDs associated with region subnets.
+        """
+        return self.subnet_id(ndx)
+
+    def igatewayID(self, ndx):
+        """
+        ID of internet gateway for a region.
+        """
+        return self.igateway_id(ndx)
+
+    def routeTable(self, ndx):
+        """
+        Route tables associated with a region.
+        """
+        return self.route_table(ndx)
+
+    def rtbAssoc(self, ndx):
+        """
+        Route table associations for a region.
+        """
+        return self.rtb_assoc(ndx)
+
+    # END OBSOLETE --------------------------------------------------
+
+    def group_id(self, ndx):
+        """
+        ID of virtual private cloud (VPD) for region.
+        """
+
+        return self._group_ids[ndx]
+
+    def vpc_id(self, ndx):
         """
         ID of virtual private cloud (VPD) for region.
 
@@ -159,9 +213,9 @@ class VMMgr(object):
         :returns: the virtual private cloud ID corresponding to the index.
         :rtype: str
         """
-        return self._vpcIDs[ndx]
+        return self._vpc_ids[ndx]
 
-    def vpcCIDR(self, ndx):
+    def vpc_cidr(self, ndx):
         """
         Main CIDR block for the region.
 
@@ -171,7 +225,7 @@ class VMMgr(object):
         :returns: the VPC's CIDR block (dotted quad/prefix length)
         :rtype: str
         """
-        return self._vpcCIDRs[ndx]
+        return self._vpc_cidrs[ndx]
 
     def zone(self, ndx):
         """
@@ -185,7 +239,7 @@ class VMMgr(object):
         """
         return self._zones[ndx]
 
-    def subnetCIDR(self, ndx):
+    def subnet_cidr(self, ndx):
         """
         CIDR blocks used by subnets within the rgion.
 
@@ -195,9 +249,9 @@ class VMMgr(object):
         :returns: CIDR blocks associated with respective subnets in region.
         :rtype: list of list of str
         """
-        return self._subnetCIDRs[ndx]
+        return self._subnet_cidrs[ndx]
 
-    def subnetID(self, ndx):
+    def subnet_id(self, ndx):
         """
         IDs associated with region subnets.
 
@@ -207,9 +261,9 @@ class VMMgr(object):
         :returns: IDs of subnets in region.
         :rtype: list of list of str
         """
-        return self._subnetIDs[ndx]
+        return self._subnet_ids[ndx]
 
-    def igatewayID(self, ndx):
+    def igateway_id(self, ndx):
         """
         ID of internet gateway for a region.
 
@@ -219,9 +273,9 @@ class VMMgr(object):
         :returns: ID of internet gateway for an EC2 region.
         :rtype: str
         """
-        return self._igatewayIDs[ndx]
+        return self._igateway_ids[ndx]
 
-    def routeTable(self, ndx):
+    def route_table(self, ndx):
         """
         Route tables associated with a region.
 
@@ -231,9 +285,9 @@ class VMMgr(object):
         :returns: list of route table IDs for subnets in the region.
         :rtype: list of str
         """
-        return self._routeTables[ndx]
+        return self._route_tables[ndx]
 
-    def rtbAssoc(self, ndx):
+    def rtb_assoc(self, ndx):
         """
         Route table associations for a region.
 
@@ -243,28 +297,34 @@ class VMMgr(object):
         :returns: list of route table association IDs for subnets in region.
         :rtype: list of str
         """
-        return self._rtbAssocs[ndx]
+        return self._rtb_assocs[ndx]
 
 # CLASS #############################################################
 
 
 class Host(object):
+    """
+    Parent class for hosts of various kinds.
+    """
 
     def __init__(self, fqdn):
         self._fqdn = fqdn
 
     @property
     def fqdn(self):
+        """ Return the host's fully qualified domain name (like example.com)."""
         return self._fqdn
 
 
 class EC2Host(Host):
+    """ Virtual machine on Amazon EC2 cloud as Host. """
 
     def __init__(self, fqdn):
-        super(EC2Host, self).__init__(fqdn)
+        super().__init__(fqdn)
 
 
 class LinuxBox(Host):
+    """ Linux box (actual hardware on a subnet) as Host. """
 
     def __init__(self, fqdn):
-        super(LinuxBox, self).__init__(fqdn)
+        super().__init__(fqdn)

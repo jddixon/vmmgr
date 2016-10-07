@@ -26,12 +26,12 @@ bash:std:installit
 bash:std:test.all
 bash:local:update.vpcs
 
-py:global:vmInit
-py:global:vmKill
-py:global:vmLaunch
-py:global:vmList
-py:global:vmScrub
-py:global:vmUpdate
-py:global:vmVerify
+py:global:vm_init
+py:global:vm_kill
+py:global:vm_launch
+py:global:vm_list
+py:global:vm_scrub
+py:global:vm_update
+py:global:vm_verify
 
 

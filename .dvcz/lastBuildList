@@ -7,26 +7,27 @@ zPjEShF9rvcNa9XEy1dKpcDz9Szbm2SlxOgM83fDDGtOq4SSCSqndtxrOvXXPB57
 H1mJV/FmerbXRPm5ERJVNIxtLk7Gr2Ce45FVlWyJGMhpfVlKkkk+bRQ02OFfazJI
 GQIDAQAB
 -----END RSA PUBLIC KEY-----
-vmmgr v0.5.7
-2016-08-28 23:08:50
+vmmgr v0.5.8
+2016-10-07 20:31:23
 # BEGIN CONTENT #
 vmmgr
  .dvcz
-  builds b06f0dc009e37a7b5bbb66892aea2ad6c660c623
+  builds 8b1d69e5df624fc587c6b744e7fb52925f76b83d
   copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
-  lastBuildList 15cfa5642a8fa23da8aeeeb352c72eb663c23dea
+  lastBuildList 79ab3625c9608f6d8088ae898d7c616ae06b0eff
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
-  projCfg 83b75b1e5d3fb883c1d4afc5206fa16178ce9ccd
-  projCfg.local 0f9575b41114e870c289300178e7d230584f2031
-  version 41d76c0b86f43ab8520185b044fe311f3890e67f
- .gitignore a654abfcb437fa0397f274b6c338c509ab86acf2
- CHANGES 98b30f06a934b9e8890f94892e695c876cf2c091
+  projCfg 427ec01e0a5fdc3e1804c55ac5f67090faa6a319
+  projCfg.local f7bf1463fa382400e892f1b96457d57a70f145ce
+  version d2b7758a50e3cb53a8786cfe44df8a39f22b6ede
+ .gitignore 2bc4bcb7826ea9b5fb999444fe18f6785df1de72
+ CHANGES bce5e83f90860d6c0f9e4be7b3a869e143c805e4
  LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  MANIFEST.in 52a150519c4c8afb2e1b2c0a3b03ce6d68923265
  README.md 2c4f0bd28d895ce99a1aae49128ef8b93f3f0337
- TODO 12612eb15c1d1211568ee5661eb45784ae591d14
- bkp2U f73732fba990ad770cb8d7b23b34229e40c00df0
- countem 06cd5f86fb69086726d984001fdbb8bbb9bc13e9
+ TODO e7bcff539b39b0f0772a0defd293ac075ef32193
+ bkp2U 45b7d64cc6255e95506b7f8942e076c6de902af7
+ checkCoverage 5b697f0ab13cad29cb27521021d82dfafed2c8f8
+ countem d304888a5fa14219454e42b4ab76f6daa93747e7
  dist
   vmmgr-0.2.0.tar.gz 61f57d634628a5b0fe06df9282ff75e5ee77e95f
   vmmgr-0.3.2.tar.gz 64b5c6ff9805f68ce7377121d5d3bfb1c858d2a5
@@ -46,6 +47,8 @@ vmmgr
   vmmgr-0.5.5.tar.gz 3706b474506a416b98f2296d7f6f650087e70c80
   vmmgr-0.5.6.tar.gz fc478342191f481d2764d27bd47555b43ed62bb1
   vmmgr-0.5.7.tar.gz d0ba99901a5fb28949b8398c38001bdb0b2d7259
+  vmmgr-0.5.8.tar.gz 46c49f04cdea55ac8d2614e4339209c2acee4609
+ doPyLint 38a7aa68dee04c8274907d2c55b2035fc867981d
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -72,28 +75,29 @@ vmmgr
  nacl-use f1e7a32c2f8bc1ae040fedb74700a6e50c502478
  nacl-usw1 31118a3a7341dc518f9741e8b3b1a1a8bc9c346c
  permit.587 ec6e7b322394428ab3dcf474eaacc63fac569b2e
+ pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  restrict_group 6b61a5d51d0945dae68961049905e7f35a7f50d5
  restrict_groups 9f65ffce010bba1c4a830e26586ade059f5cd9e6
  rtb.eu 334821fd30f29dfd24d3a2385783e452d6c5cd10
  rtb.use 7a2537a8dcd4842e82204161d3528e39cdb9131a
  rtb.usw1 400f9fdaac17e4887d256392d31b34378d5c9cdc
  rtb.usw2 b5c9cbbefb18b0971d5a7cd26cdfc408c5b3d949
- setup.py 2d8b9d57200b1807a44dbc292abcad20848640ae
- styleit 913e3d8531cf83076a5b6272ef1424323e1f39a9
+ setup.py 15e7c0cc26a43d91d687827003b9980b72cf443a
+ styleit 755147c1c19612666f16b5b0a7c4f1ef9546143b
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
- test.all d00e6ca8b4cb7385ca044b7bfd029897e10c3acf
- testSetup.py 3b6780cc96c2b6c93435527d2cee9462a045d798
+ test.all 9ac3bc1d00f3819c5c798f77c3b7feb9d3799c06
+ test_setup.py fb73eb76357ebb2d74eea7a0761fdf8ef609d0de
  update.vpcs ac662841495c599cc0e55e0fbb2593c64d33c93f
- vmInit a68105d6ab9204a28fa41ecb15e7285518db195f
- vmKill 40115525e24528dd5f9f452c1c1afde122b31360
- vmLaunch 99e941186f4022540010e1ba016c89db8c61bf93
- vmList 8c59e224ad9afed2177f04f879756085320ae85e
- vmScrub 8b63362eae3062013bb4501b7ec698b19041686b
- vmUpdate 9c05ddd41ae4406fed22f7d472d97548e04c953e
- vmVerify 8379886f58a44fd50a290eafe7f323d20d66c684
+ vm_init b0cf2281b6d52911f451b9ec6215252cc4103c50
+ vm_kill d80e2475c82ad5e3678f64725bc22d172b1873b9
+ vm_launch 1e1ed2353ad3f37a89fe29e78090555aed8d5a93
+ vm_list 5a6fbf4635263ae6f2b92e7ba30fb20cd777f7cb
+ vm_scrub c47ad6ea0bb70b5155ddcd10ae9e34ae18127a6e
+ vm_update afb95e99a876eb36244b70c1aae6ca3d3417f05d
+ vm_verify 968658df75be947141ec012ca104ca5edd9732b6
  vmmgr
-  __init__.py fabac72f2deacc232e9d051f02f735ccd0f4d8cc
+  __init__.py cc7e4dd0486b57d23345c7dcf63c81e4b995cbd9
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-jYvwBBZy3Xe3HkEVPvsbJukx4dd7FnDkZtR7jRaoeLG5dYViN9Dt0h84t3PJhzni0zLGeJ6hRhgXz/OnDAtYdHizdwjqz7DB+jORUXRNlve2Au9Oz3d6Y/Bd1DrkKiXleuR8b6emP93nXQvmKkGliu/xljPhdYcU1hdXhYjFyIVpecg1I7OdEAKbVEX5Q6BFg+a71nJ+ciVTsar3XlyS0e/bfTl/ltJyyocq10ApBvbr55yKbJ2Hto/ne8lmTOUfnzlbdwK0jTfE/IPFXucJ3iYTpF03T0eYYdzDRP7WnGkaCAPR6fjtY5wj8LRhhN8Ttqpw20X09Fo7TeawlQybIA==
+POTFm14WoAtKuNIpGzTke0NXgtnMGdboe+wqIfUOj57Fr2q/dAzkIg2ZlTQv04clze3zH9ch2MlxVcW0EOPJ1IooiflfSvYLLTgtDdiY1u7rVeDmCbPutoPip7nGBcrO4R+R0CGhYmz/Wk3J0qCN/wfwQVGPnu1IUbzADgoQ16y6/knTVQ60IlkcOyIvGuUNE2Gc+FMAzER1adQcjrOZAgxTo1A0+3GYcFYYuWnT3cmYig75LF2exYl8oCSYW5ANa4Jp2AKLtRyWi2Ry07oCqcxGM6HSpDQNKXH9CvpeqtiOO0J1/0t0JojHrwxcmwDR6cTjdMXLWO5AQB3aTMjpMA==
