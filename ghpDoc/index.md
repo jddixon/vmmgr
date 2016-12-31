@@ -14,12 +14,12 @@ a package for communicating with
 
 The particular network described by the configuration files in this
 package includes
-EC2 instances in a zone in each of four resions:
+EC2 instances in a zone in each of four regions:
 eu-west-1, us-east-1, us-west-1, and us-west-2.
 
 * **eu-west-1** is in Ireland and serves the European Union (EU) area
 * **us-east-1** is on the US East Coast (in or attached to MAE East)
-* **us-west-1** is in California
+* **us-west-1** is in Northern California
 * **us-west-2** is in Oregon.
 
 We have **VPCs** (virtual private clouds) in each of these zones.

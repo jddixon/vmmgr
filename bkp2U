@@ -4,7 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/vmmgr
   
-  blListGen \
+  bl_listgen \
     -d ../vmmgr \
     -1L  \
     -u $DVCZ_UDIR \

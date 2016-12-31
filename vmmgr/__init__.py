@@ -13,15 +13,14 @@ __all__ = ['__version__', '__version_date__',
            'ZONES',
            'SUBNET_IDS', 'SUBNET_CIDRS',
            'IGATEWAY_IDS',
-           # FUNCTIONS ---------------------------------------------
+           # FUNCTIONS -----------------------------------
            'valid_region',
-           # CLASSES -----------------------------------------------
-           'VMMgr',
-           'Host', 'EC2Host', 'LinuxBox',
-           ]
+           # CLASSES -------------------------------------
+           'VMMgr', 'VMMgrError',
+           'Host', 'EC2Host', 'LinuxBox', ]
 
-__version__ = '0.5.8'
-__version_date__ = '2016-10-07'
+__version__ = '0.5.10'
+__version_date__ = '2016-12-30'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
@@ -42,20 +41,17 @@ VPC_CIDRS = ['192.168.192.0/20', '192.168.208.0/20',
 ZONES = [['eu-west-1a', ],
          ['us-east-1c', 'us-east-1d', ],
          ['us-west-1c', ],
-         ['us-west-2c', ],
-         ]
+         ['us-west-2c', ], ]
 
 SUBNET_CIDRS = [['192.168.192.0/24', ],
                 ['192.168.208.0/24', '192.168.209.0/24', ],
                 ['192.168.224.0/24', ],
-                ['192.168.240.0/24', ]
-                ]
+                ['192.168.240.0/24', ]]
 
 SUBNET_IDS = [['subnet-4f9f6c38', ],
               ['subnet-9ef237e9', 'subnet-cd3ed994', ],
               ['subnet-8085b3c6', ],
-              ['subnet-19e2eb5f', ],
-              ]
+              ['subnet-19e2eb5f', ], ]
 
 IGATEWAY_IDS = ['igw-cf32d6aa', 'igw-fb3bff9e',
                 'igw-948d91f6', 'igw-9809e2fd']
@@ -64,8 +60,7 @@ IGATEWAY_IDS = ['igw-cf32d6aa', 'igw-fb3bff9e',
 ROUTE_TABLES = ['rtb-f1649994', 'rtb-5d17cc38',
                 'rtb-6e4dae0b',
                 # the main table, then the local
-                ['rtb-cf7f84aa', 'rtb-d1708bb4'],
-                ]
+                ['rtb-cf7f84aa', 'rtb-d1708bb4'], ]
 
 # This is not accurate (a) the 'main' associations are missing and
 # (b) the eu-west 'main' association is in any case with the wrong
@@ -75,8 +70,8 @@ RTB_ASSOCS = [['rtbassoc-afc833ca', ],
               ['rtbassoc-de69c7bb', 'rtbassoc-9669c7f3', ],
               ['rtbassoc-e3769486', ],
               # this is for the local rtb
-              ['rtbassoc-09d7176c', ],
-              ]
+              ['rtbassoc-09d7176c', ], ]
+
 # FUNCTIONS #########################################################
 
 
@@ -99,18 +94,21 @@ def valid_region(region):
 # CLASS #############################################################
 
 
+class VMMgrError(RuntimeError):
+    pass
+
+
 class VMMgr(object):
     """
-
     :ivar _regions: List of valid EC2 region names.
-    :ivar _groupIDs: A list of security group IDs (strings).
-    :ivar _vpcIDs: A list of Virtual Private Cloud (VPC) IDs.
-    :ivar _vpcCIDRS: List of CIDR block specs, dotted quad followed by prefix
+    :ivar _group_ids: A list of security group IDs (strings).
+    :ivar _vpc_ids: A list of Virtual Private Cloud (VPC) IDs.
+    :ivar _vpc_cidrS: List of CIDR block specs, dotted quad followed by prefix
         length.
     :ivar _zones: List of availability zones within region.
-    :ivar _subnetCIDRs: List of CIDR blocks associated with respective subnets.
-    :ivar _subnetIDs: List of subnet IDs.
-    :ivar _igatewayIDs: List of internet gateways associated with respective
+    :ivar _subnet_cidrs: List of CIDR blocks associated with respective subnets.
+    :ivar _subnet_ids: List of subnet IDs.
+    :ivar _igateway_ids: List of internet gateways associated with respective
         subnets.
     """
 
@@ -137,64 +135,6 @@ class VMMgr(object):
         :rtype: str
         """
         return self._regions[ndx]
-
-    # OBSOLETE ------------------------------------------------------
-
-    def groupID(self, ndx):
-        """
-        ID of security group for region.
-        """
-        return self.group_id(ndx)
-
-    def vpcID(self, ndx):
-        """
-        ID of virtual private cloud (VPD) for region.
-
-        :param ndx: zero-baseds index of an EC2 region.
-        :type ndx: int
-        :raises IndexError: if there is no EC2 region with this index.
-        :returns: the security group ID corresponding to the index.
-        :rtype: str
-        """
-        return self.vpc_id(ndx)
-
-    def vpcCIDR(self, ndx):
-        """
-        Main CIDR block for the region.
-        """
-        return self.vpc_cidr(ndx)
-
-    def subnetCIDR(self, ndx):
-        """
-        CIDR blocks used by subnets within the rgion.
-        """
-        return self.subnet_cidr(ndx)
-
-    def subnetID(self, ndx):
-        """
-        IDs associated with region subnets.
-        """
-        return self.subnet_id(ndx)
-
-    def igatewayID(self, ndx):
-        """
-        ID of internet gateway for a region.
-        """
-        return self.igateway_id(ndx)
-
-    def routeTable(self, ndx):
-        """
-        Route tables associated with a region.
-        """
-        return self.route_table(ndx)
-
-    def rtbAssoc(self, ndx):
-        """
-        Route table associations for a region.
-        """
-        return self.rtb_assoc(ndx)
-
-    # END OBSOLETE --------------------------------------------------
 
     def group_id(self, ndx):
         """
@@ -302,18 +242,93 @@ class VMMgr(object):
 # CLASS #############################################################
 
 
-class Host(object):
-    """
-    Parent class for hosts of various kinds.
-    """
+class Interface(object):
 
-    def __init__(self, fqdn):
+    def __init__(self, name, fqdn, ip_addr):
+        self._name = name
+
+        # need checks
         self._fqdn = fqdn
+        # need checks
+        self._ip_addr = ip_addr
+
+    @property
+    def name(self):
+        """
+        Return the interface's name (like eth0).  On a given host,
+        interface names must be unique.
+        """
+        return self._name
 
     @property
     def fqdn(self):
-        """ Return the host's fully qualified domain name (like example.com)."""
+        """
+        Return the interface's fully qualified domain name (like example.com).
+
+        On a given host FQDNs must be `unique.
+        """
         return self._fqdn
+
+    @property
+    def ip_addr(self):
+        """
+        Return the interface's IP address (like 192.168.0.1).
+
+        On a given host IP addresses must be unique.
+        """
+        return self._ip_addr
+
+
+class Host(object):
+    """
+    Parent class for hosts of various kinds.
+
+    Practice is to associate a pair (IP address, domain name) with
+    each interface.  In anticipated use, hosts will have 1 to 3
+    interfaces.  Interfaces have a name, but the names are not
+    guaranteed to be stable.  In the real world, the same physical
+    interface may have multiple IP addresses and domain names.
+    Need to support IPv6 as well as IPv4.
+    """
+
+    def __init__(self, name, interfaces=None):
+
+        self._name = name
+
+        self._interfaces = []
+        if interfaces:
+            for iface in interfaces:
+                self.add_interface(iface)
+
+    @property
+    def name(self):
+        """
+        Return the host's conventional name.
+
+        This must be a valid identifier and must be unique within the
+        network.  For now the first character of the name must be a
+        letter (underscore OK) and otherwise alphanumeric.
+        """
+        return self._name
+
+    def add_interface(self, iface):
+        """
+        Add an interface to the Host specification.
+
+        This is a triple: name, fully qualified domain name, and IP address.
+        Provisionally on a given host each of these is unique.  The FQDN and
+        IP address must be unique within the network.
+        """
+        # XXX need better checks
+        if iface is None:
+            raise VMMgrError('attempt to add a null interface')
+        if iface.name is None:
+            raise VMMgrError('attempt to add a nameless interface')
+        if iface.fqdn is None:
+            raise VMMgrError('attempt to add an interface without FQDN')
+        if iface.ip_addr is None:
+            raise VMMgrError('attempt to add an interface without an IP addr')
+        self._interfaces.append(iface)
 
 
 class EC2Host(Host):
