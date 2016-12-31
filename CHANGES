@@ -1,5 +1,11 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.10
+    2016-12-30
+        * more pylinting; minor bug fixes                           SLOC 1678
+v0.5.9
+    2016-10-08
+        * pylint; elaborate Host API                                SLOC 1886
 v0.5.8
     2016-10-07
         * add pylint, coverage                                      SLOC 1868
@@ -85,6 +91,8 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
+
 
 
 

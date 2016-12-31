@@ -23,10 +23,10 @@ def list_site(cnx, fqdn):
 
 def do_it(args):
     """ Actually carry out the action. """
-    force = args.force
-    testing = args.testing
-    verbose = args.verbose
-    regions = args.regions
+    #force = args.force
+    #testing = args.testing
+    #verbose = args.verbose
+    #regions = args.regions
     # cnx = boto3.connect_s3()  # no such function
 
     # XXX STUB XXX
