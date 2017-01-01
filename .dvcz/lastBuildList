@@ -7,20 +7,20 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-vmmgr v0.5.10
-2016-12-31 00:16:57
+vmmgr v0.5.11
+2017-01-01 01:33:36
 # BEGIN CONTENT #
 vmmgr
  .dvcz
-  builds 53b710bd45126cfa01e179c33b442a66cf1034fd
+  builds e5b66a67808b9b41e2944505e137869b4a390e86
   copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
-  lastBuildList 11fef68ecd3fd6bd0e313c97cf21604b06d12a72
+  lastBuildList ea7abc1ceea18e755f866f9d4cab1df00f5638e8
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg 427ec01e0a5fdc3e1804c55ac5f67090faa6a319
   projCfg.local f7bf1463fa382400e892f1b96457d57a70f145ce
-  version 8e9f3dd7648c4f44383e2681f4f05a164517aefd
+  version dba11768f04719fea927b258383be68fad9cc1da
  .gitignore b2cc5fa149056ba0a01449dcdb19409728483a5c
- CHANGES 4d080f29b35f0f838a6edf6338cff27b5501bec4
+ CHANGES 0a871444f0b1bf0efd8ae2422053099f35689dbd
  LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  MANIFEST.in 52a150519c4c8afb2e1b2c0a3b03ce6d68923265
  README.md d7e723122a0d55c5b3d7a0df1e0a5ed5c03d61fe
@@ -42,6 +42,7 @@ vmmgr
   vmmgr-0.5.0.tar.gz 68d8bcdf85aa13ac70312002712e64f180bc9deb
   vmmgr-0.5.1.tar.gz 940e6a63807080883b3909a017b7541c8ac797ff
   vmmgr-0.5.10.tar.gz 120698cc85086b40798a8b440060bd95b57b0cb1
+  vmmgr-0.5.11.tar.gz 06f9cd3602944ea2c58015eea2ffe0229db8c4fe
   vmmgr-0.5.2.tar.gz 6c06659204fad2c58e8f5e84fc73fa45e6ad2341
   vmmgr-0.5.3.tar.gz e69a9a29ae78413b49061f657e653d1efac675a4
   vmmgr-0.5.4.tar.gz 8ceef7dde775fe6cecbe04af2c4eb41aa15c11d4
@@ -88,7 +89,7 @@ vmmgr
  styleit 02fb1c13affc5f688666f2c5ae333ade93ca0082
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
  test.all 9ac3bc1d00f3819c5c798f77c3b7feb9d3799c06
- test_setup.py fb73eb76357ebb2d74eea7a0761fdf8ef609d0de
+ test_setup.py a93b856686da5745c437f70e8faa4a2594b5fb1f
  update.vpcs ac662841495c599cc0e55e0fbb2593c64d33c93f
  vm_init 43629192e5a7230627e17a36a0f0e029ba95ae8b
  vm_kill 14ab0cc82ebc03ebbf1c037e90f14fa590e3137f
@@ -98,8 +99,8 @@ vmmgr
  vm_update 8e6cb2393707ad5139d073861aff8334cf8ac931
  vm_verify c041605d77e723e3799746d4f3be25f8e659a2d4
  vmmgr
-  __init__.py e8627b4c362f531eaf535a1127186add07008042
+  __init__.py 4fed97f9cc5f403edf7aed25bd267b5b38bf0468
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-aMfLvHMIgwXOvXKwrhRNOc73gSNg35I4C3lF3tWImgvgn0JzfBOSaNIQ0qfkrYyaBauTnRUmSphCYlnOmFVHPHAIXioKSlDn9W4ZKDAA2emSGdWMMZ622MaP/OGrjblIbstmZsu/PvIW7M+eWmIbIptmKqwZBTZ5mOIZJiSYYoqBKR6Wf1kcvx3EtJdRTxE0ITRG0dKVZQidDnlSWIXE/1fUis0nkSntjdGC5dW2fjDsFFugrUBNdfTZIuW+ahOZTIlYYuG/KHn8HQKCf0qZ6ctKnNh2DXFqAie8itXdX5QeyHSnCF5nO9WUSTBs1xa17tm02eSESjw06zVZU90N/g==
+jtAb9rxR1iWPAuhR5kPqpn4KOPtSVelu/vls3pr5LuiRvRzgi88awtG2LpHIfqch8A9QSEeAUaWEwNcOaVUuRnMkr5FLz4sUuIzYZmd2xFBAezxaNcfpxlLkFzZ/QgztgONgEpCoIqFJRANHV8+2kFyTC5tc8u6D14ZpBD1fIIcrwFf3rmvKjPE9iujx17jiwOiBR7XOXTrX2b9X95yfnTC8zs5LiVrS0kQSk6yo6TkxL0bbljL+CiOrGl9bvl+pGYTFhzFCf0VwE7XGSot3gni9WMwejHDazrhHNp3J36ADzw2NXT9fCjFku4bCyuwAmpFMIkzwG7WbwX5B7+6EPQ==

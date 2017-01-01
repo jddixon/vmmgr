@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.11
+    2016-12-31
+        * experiment with botocore                                  SLOC 1710
 v0.5.10
     2016-12-30
         * more pylinting; minor bug fixes                           SLOC 1678
@@ -91,6 +94,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 
