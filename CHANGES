@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.12
+    2017-01-01
+        * botocore collects info on instances and volumes           SLOC 1741
 v0.5.11
     2016-12-31
         * experiment with botocore                                  SLOC 1710
@@ -94,6 +97,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

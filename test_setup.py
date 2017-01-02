@@ -148,11 +148,45 @@ class TestSetup(unittest.TestCase):
             for ndx in range(icount):
                 instance = inst[ndx]
                 # there are 28 keys
-                print('    instance ID: %s' % instance['InstanceId'])
-                print('    image ID:    %s' % instance['ImageId'])
-                print('    public IP:   %s' % instance['PublicIpAddress'])
-                print('    private IP:  %s' % instance['PrivateIpAddress'])
-                print('    subnet ID:   %s' % instance['SubnetId'])
+                print('    instance ID:   %s' % instance['InstanceId'])
+                print('    instance type: %s' % instance['InstanceType'])
+                print('    image ID:      %s' % instance['ImageId'])
+                print('    key name:      %s' % instance['KeyName'])
+                print('    public IP:     %s' % instance['PublicIpAddress'])
+                print('    private IP:    %s' % instance['PrivateIpAddress'])
+                print('    subnet ID:     %s' % instance['SubnetId'])
+                print('    root device:   %s' % instance['RootDeviceName'])
+
+                blkdev = instance['BlockDeviceMappings']
+                print("    There are %d block devices" % len(blkdev))
+                for count in range(len(blkdev)):
+                    dev = blkdev[count]
+                    name = dev['DeviceName']
+                    ebs = dev['Ebs']
+                    status = ebs['Status']
+                    vol_id = ebs['VolumeId']
+                    del_on_t = ebs['DeleteOnTermination']
+                    print("        %d name %s status %s vol_id %s" % (
+                        count, name, status, vol_id))
+
+            volumes = ec2.describe_volumes()['Volumes']
+            vcount = len(volumes)
+            print("There are %d volumes" % vcount)
+            for ndx in range(vcount):
+                volume = volumes[ndx]
+                # there are 9 keys
+                print('    volume ID:   %s' % volume['VolumeId'])
+                print('    volume type: %s' % volume['VolumeType'])
+                print('    size:        %s' % volume['Size'])
+                print('    state:       %s' % volume['State'])
+                print('    zone:        %s' % volume['AvailabilityZone'])
+                print('    attachments:')
+                att = volume['Attachments'][0]
+                print('        volume ID:   %s' % att['VolumeId'])
+                print('        device:      %s' % att['Device'])
+                print('        state:       %s' % att['State'])
+                print('        instance ID: %s' % att['InstanceId'])
+                print('        del on term  %s' % att['DeleteOnTermination'])
 
             continue                # XXX
             # END
