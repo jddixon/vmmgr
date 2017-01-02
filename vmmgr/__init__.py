@@ -19,8 +19,8 @@ __all__ = ['__version__', '__version_date__',
            'VMMgr', 'VMMgrError',
            'Host', 'EC2Host', 'LinuxBox', ]
 
-__version__ = '0.5.11'
-__version_date__ = '2016-12-31'
+__version__ = '0.5.12'
+__version_date__ = '2017-01-01'
 
 # CONSTANTS #########################################################
 # regions of interest at this time
