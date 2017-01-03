@@ -7,20 +7,20 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-vmmgr v0.5.12
-2017-01-02 01:31:59
+vmmgr v0.5.13
+2017-01-03 01:51:30
 # BEGIN CONTENT #
 vmmgr
  .dvcz
-  builds ce0710fd9f33359a3ac6f39947580ca8f5528dee
+  builds f49c171746a4a55d24fa94c2017e3a3ace3090c4
   copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
-  lastBuildList b31b6b16ca3c2b498bbe5049964b85cf6e2c7c52
+  lastBuildList d0be8ae12ba5860f4134ba0eb4bb2aa3759146fe
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg 427ec01e0a5fdc3e1804c55ac5f67090faa6a319
   projCfg.local f7bf1463fa382400e892f1b96457d57a70f145ce
-  version 6a9e18f84fbd0b39a09d5268d510990d04848f8d
+  version 46b1bf8e7e3accfaf5aa014d447b3a7ca61ab640
  .gitignore b2cc5fa149056ba0a01449dcdb19409728483a5c
- CHANGES 93ab364626d467d7ddf50f206e16cea37a6d51a6
+ CHANGES 60adccb873aedb39974698eaac06b1aff2ecdd58
  LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  MANIFEST.in 52a150519c4c8afb2e1b2c0a3b03ce6d68923265
  README.md d7e723122a0d55c5b3d7a0df1e0a5ed5c03d61fe
@@ -44,6 +44,7 @@ vmmgr
   vmmgr-0.5.10.tar.gz 120698cc85086b40798a8b440060bd95b57b0cb1
   vmmgr-0.5.11.tar.gz 06f9cd3602944ea2c58015eea2ffe0229db8c4fe
   vmmgr-0.5.12.tar.gz ca339470696214b53a323ddbdf169609e6b66aeb
+  vmmgr-0.5.13.tar.gz eeb9e6a55c6b787931b56da7df4b4c6003c50bd6
   vmmgr-0.5.2.tar.gz 6c06659204fad2c58e8f5e84fc73fa45e6ad2341
   vmmgr-0.5.3.tar.gz e69a9a29ae78413b49061f657e653d1efac675a4
   vmmgr-0.5.4.tar.gz 8ceef7dde775fe6cecbe04af2c4eb41aa15c11d4
@@ -75,22 +76,22 @@ vmmgr
  installit ef570f450b2eb8244be12331f6180af54d8566d1
  make.groups e7a4930c5baab2719cf285338d4a5f1f1bd43121
  make.vpcs 475a7eb4644728c9d29398b8a1e567859c66e51b
- nacl-eu ecdd8e2311f19d3b61c6b8ef7213f577771b9101
- nacl-use f1e7a32c2f8bc1ae040fedb74700a6e50c502478
- nacl-usw1 31118a3a7341dc518f9741e8b3b1a1a8bc9c346c
+ nacl.eu1 ecdd8e2311f19d3b61c6b8ef7213f577771b9101
+ nacl.use1 f1e7a32c2f8bc1ae040fedb74700a6e50c502478
+ nacl.usw1 31118a3a7341dc518f9741e8b3b1a1a8bc9c346c
  permit.587 ec6e7b322394428ab3dcf474eaacc63fac569b2e
  pylintrc dd234fda24a547a9071f1e4608a3c1f3b7de9aa0
  restrict_group 6b61a5d51d0945dae68961049905e7f35a7f50d5
  restrict_groups 9f65ffce010bba1c4a830e26586ade059f5cd9e6
- rtb.eu 334821fd30f29dfd24d3a2385783e452d6c5cd10
- rtb.use 7a2537a8dcd4842e82204161d3528e39cdb9131a
+ rtb.eu1 334821fd30f29dfd24d3a2385783e452d6c5cd10
+ rtb.use1 7a2537a8dcd4842e82204161d3528e39cdb9131a
  rtb.usw1 400f9fdaac17e4887d256392d31b34378d5c9cdc
  rtb.usw2 b5c9cbbefb18b0971d5a7cd26cdfc408c5b3d949
  setup.py b4b5423924a0be1f130beb33ac092c75da218675
  styleit 02fb1c13affc5f688666f2c5ae333ade93ca0082
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
  test.all 9ac3bc1d00f3819c5c798f77c3b7feb9d3799c06
- test_setup.py 71043283b5f8de389eddba85f1309c4b2c310d35
+ test_setup.py 8044c486b9478751180b5106b24e1e4d7351baeb
  update.vpcs ac662841495c599cc0e55e0fbb2593c64d33c93f
  vm_init 43629192e5a7230627e17a36a0f0e029ba95ae8b
  vm_kill 14ab0cc82ebc03ebbf1c037e90f14fa590e3137f
@@ -100,8 +101,8 @@ vmmgr
  vm_update 8e6cb2393707ad5139d073861aff8334cf8ac931
  vm_verify c041605d77e723e3799746d4f3be25f8e659a2d4
  vmmgr
-  __init__.py e439660453a2189f900492dc82820510b929b627
+  __init__.py f7d439e16bf03487602cbc264ce05acade15710e
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-Brmx9+CBq1hPCEEOkd3mLga3ziaOT/QUrM6oe4/o7mt6irBIan3/HdEp6gotC05n2U8FQz+vySEOv6JrUqYR65KPD8T/1HZYJqORT/0L1eJGmQQEBgz4kcbT1mSuaJ/JDS6iJwJtNrr+AkignK27+1vywuc/8wTR3Ik3aJseAwVF50J8RSeAvQGVmeIeiaSqgKOTlqrdbMr4KwSdUIXSH/vNdtW9k5eo2tBuKU3U2zn75SCYJMdb9d3rFPpfkitbtJeuBpCeqPl65IO7IsDHjPrEQNgG4CkSX1Blkp66Sp213DsYb4yfywW6AMPdFYWk3datj0z2IlIZN9Tyovnl6w==
+Ngr9VTrK3SWdGc26OushBm+gM4GK8716MFNam7PKSa+P7YJoCtM4N81419PpZznOoM84nekbz6pJxzEYwlwusuTUTg165BODygeNrx8AutDPy4tEDyLXmTg08aAZI+1rOhsjbc82CmD6pK3NM2o2uh9lSsV9P8Gvi+p6SoApEJ6YylDD+vrERolQoRq3pu5CgZ4qT5SauyCnEBWxio41wpE+mlt+g2dyJIHN6mUswT0wMOjNk+36PKRRAFTPzziItdmj8aa3LeW7gJieu+WbWHHn7C5rBxH9LEmaxdB+xZpTNRvxRmgV3v2mZpWb760+mPOMcJ9BbMskp42kuVPSow==
