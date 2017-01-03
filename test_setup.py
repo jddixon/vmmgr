@@ -56,7 +56,8 @@ class TestSetup(unittest.TestCase):
 #           vpc_cnx.close()
 #           # END HACK
 
-    def test_vm_mgr_setup_boto3(self):
+    # COMMENTED OUT, in effect
+    def zzz_test_vm_mgr_setup_boto3(self):
         """ Python 3/boto3 version of the test code. """
 
         # ResourceWarning warning messages like
@@ -144,49 +145,70 @@ class TestSetup(unittest.TestCase):
 
             inst = ec2.describe_instances()['Reservations'][0]['Instances']
             icount = len(inst)
-            print("there is/are %d instances" % icount)
+            print("There is/are %d instances" % icount)
             for ndx in range(icount):
                 instance = inst[ndx]
                 # there are 28 keys
-                print('    instance ID:   %s' % instance['InstanceId'])
-                print('    instance type: %s' % instance['InstanceType'])
-                print('    image ID:      %s' % instance['ImageId'])
-                print('    key name:      %s' % instance['KeyName'])
-                print('    public IP:     %s' % instance['PublicIpAddress'])
-                print('    private IP:    %s' % instance['PrivateIpAddress'])
-                print('    subnet ID:     %s' % instance['SubnetId'])
-                print('    root device:   %s' % instance['RootDeviceName'])
+                print('  instance ID:   %s' % instance['InstanceId'])
+                print('  instance type: %s' % instance['InstanceType'])
+                print('  image ID:      %s' % instance['ImageId'])
+                print('  key name:      %s' % instance['KeyName'])
+                print('  public IP:     %s' % instance['PublicIpAddress'])
+                print('  private IP:    %s' % instance['PrivateIpAddress'])
+                print('  subnet ID:     %s' % instance['SubnetId'])
+                print('  root device:   %s' % instance['RootDeviceName'])
+
+                ifaces = instance['NetworkInterfaces']
+                print("  There is/are %d interfaces" % len(ifaces))
+                for count, iface in enumerate(ifaces):
+                    # there are 14 keys
+                    print(
+                        "    ID:            %s" %
+                        iface['NetworkInterfaceId'])
+                    print("    Status:        %s" % iface['Status'])
+                    print("    SubnetId:      %s" % iface['SubnetId'])
+                    print("    VpcId:         %s" % iface['VpcId'])
+                    print("    priv ip addr:  %s" % iface['PrivateIpAddress'])
+                    print("    association:")
+                    assoc = iface['Association']
+                    print("      IpOwnerId:   %s" % assoc['IpOwnerId'])
+                    print("      PublicIp:    %s" % assoc['PublicIp'])
+                    print("    groups:")
+                    groups = iface['Groups']
+                    for which, group in enumerate(groups):
+                        print("      %d: id %s, name %s" % (
+                            which, group['GroupId'], group['GroupName']))
 
                 blkdev = instance['BlockDeviceMappings']
-                print("    There are %d block devices" % len(blkdev))
+                print("  There is/are %d block devices" % len(blkdev))
                 for count in range(len(blkdev)):
                     dev = blkdev[count]
                     name = dev['DeviceName']
                     ebs = dev['Ebs']
                     status = ebs['Status']
                     vol_id = ebs['VolumeId']
-                    del_on_t = ebs['DeleteOnTermination']
-                    print("        %d name %s status %s vol_id %s" % (
+                    del_on_term = ebs['DeleteOnTermination']    # boolean
+                    print("    %d name %-9s status %s vol_id %s" % (
                         count, name, status, vol_id))
 
             volumes = ec2.describe_volumes()['Volumes']
             vcount = len(volumes)
-            print("There are %d volumes" % vcount)
+            print("  There are %d volumes" % vcount)
             for ndx in range(vcount):
                 volume = volumes[ndx]
                 # there are 9 keys
-                print('    volume ID:   %s' % volume['VolumeId'])
-                print('    volume type: %s' % volume['VolumeType'])
-                print('    size:        %s' % volume['Size'])
-                print('    state:       %s' % volume['State'])
-                print('    zone:        %s' % volume['AvailabilityZone'])
-                print('    attachments:')
+                print('  volume ID:   %s' % volume['VolumeId'])
+                print('  volume type: %s' % volume['VolumeType'])
+                print('  size:        %s' % volume['Size'])
+                print('  state:       %s' % volume['State'])
+                print('  zone:        %s' % volume['AvailabilityZone'])
+                print('  attachments:')
                 att = volume['Attachments'][0]
-                print('        volume ID:   %s' % att['VolumeId'])
-                print('        device:      %s' % att['Device'])
-                print('        state:       %s' % att['State'])
-                print('        instance ID: %s' % att['InstanceId'])
-                print('        del on term  %s' % att['DeleteOnTermination'])
+                print('    volume ID:   %s' % att['VolumeId'])
+                print('    device:      %s' % att['Device'])
+                print('    state:       %s' % att['State'])
+                print('    instance ID: %s' % att['InstanceId'])
+                print('    del on term  %s' % att['DeleteOnTermination'])
 
             continue                # XXX
             # END

@@ -19,11 +19,11 @@ __all__ = ['__version__', '__version_date__',
            'VMMgr', 'VMMgrError',
            'Host', 'EC2Host', 'LinuxBox', ]
 
-__version__ = '0.5.12'
-__version_date__ = '2017-01-01'
+__version__ = '0.5.13'
+__version_date__ = '2017-01-02'
 
 # CONSTANTS #########################################################
-# regions of interest at this time
+# Regions of interest at this time (at the end of 2016 there were 14 regions).
 REGIONS = ['eu-west-1', 'us-east-1',
            'us-west-1', 'us-west-2', ]
 
@@ -37,7 +37,7 @@ VPC_IDS = ['vpc-e248bc87', 'vpc-e975af8c',
 VPC_CIDRS = ['192.168.192.0/20', '192.168.208.0/20',
              '192.168.224.0/20', '192.168.240.0/20', ]
 
-# only zones us-east-{c,d,e} are actually available!
+# This is a subset of zones actually available.
 ZONES = [['eu-west-1a', ],
          ['us-east-1c', 'us-east-1d', ],
          ['us-west-1c', ],

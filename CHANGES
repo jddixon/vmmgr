@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.13
+    2017-01-02
+        * test_startup.py collects info on interfaces, blk devices  SLOC 1726
 v0.5.12
     2017-01-01
         * botocore collects info on instances and volumes           SLOC 1741
@@ -97,6 +100,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 
