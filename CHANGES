@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.14
+    2017-01-28
+        * simplify utilities using optionz:: dump_options()         SLOC 1689
 v0.5.13
     2017-01-02
         * test_startup.py collects info on interfaces, blk devices  SLOC 1726
@@ -100,6 +103,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 

@@ -7,6 +7,7 @@
 import sys
 from argparse import ArgumentParser
 
+from optionz import dump_options
 #import boto3
 from vmmgr import (__version__, __version_date__,
                    valid_region,
@@ -107,15 +108,7 @@ def main():
         sys.exit(0)
 
     if args.verbose or args.just_show:
-        print('all_entities        = ' + str(args.all_entities))
-        print('  all_instances     = ' + str(args.all_instances))
-        print('  all_networks      = ' + str(args.all_networks))
-        print('  all_regions       = ' + str(args.all_regions))
-        print('  all_volumes       = ' + str(args.all_volumes))
-        print('do_nothing          = ' + str(args.do_nothing))
-        print('force              = ' + str(args.force))
-        print('testing            = ' + str(args.testing))
-        print('verbose            = ' + str(args.verbose))
+        print(dump_options(args))
 
         if len(args.regions) > 0:
             print('regions:')
