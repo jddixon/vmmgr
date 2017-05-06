@@ -9,83 +9,48 @@
 </head>
 <body>
 <div class="content">
-<h1>
-<a id="user-content-vmmgr" class="anchor" href="#vmmgr" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmmgr</h1>
+<h1 class="libTop">vmmgr</h1>
 
-<h2>
-<a id="user-content-general" class="anchor" href="#general" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>General</h2>
-
+<h2>General</h2>
 <p>Configuration files and Python3 scripts for managing the configuration
 of networks, instances, and volumes in Amazon's
 <a href="https://aws.amazon.com/ec2">EC2 cloud.</a></p>
-
 <p>The python scripts use
 <a href="https://github.com/boto/boto3">boto,</a>
 a package for communicating with
 <a href="https://aws.amazon.com">Amazon Web Services</a>
 (AWS), which include the EC2 cloud.</p>
-
 <p>The particular network described by the configuration files in this
 package includes
 EC2 instances in a zone in each of four regions:
 eu-west-1, us-east-1, us-west-1, and us-west-2.</p>
-
 <ul>
-<li>
-<strong>eu-west-1</strong> is in Ireland and serves the European Union (EU) area</li>
-<li>
-<strong>us-east-1</strong> is on the US East Coast (in or attached to MAE East)</li>
-<li>
-<strong>us-west-1</strong> is in Northern California</li>
-<li>
-<strong>us-west-2</strong> is in Oregon.</li>
+<li><strong>eu-west-1</strong> is in Ireland and serves the European Union (EU) area</li>
+<li><strong>us-east-1</strong> is on the US East Coast (in or attached to MAE East)</li>
+<li><strong>us-west-1</strong> is in Northern California</li>
+<li><strong>us-west-2</strong> is in Oregon.</li>
 </ul>
-
 <p>We have <strong>VPCs</strong> (virtual private clouds) in each of these zones.</p>
-
 <p>A <code>/20</code> is set up for each VPC.  This is 16 class Cs.  It must be properly
 aligned.</p>
-
 <p>A VPC has to be defined for each region used.  This is done by executing
 a command like</p>
-
 <pre><code>ec2addvpc 192.168.240.0/20 --region us-west-2 &gt;&gt; vpcx
 </code></pre>
-
 <p>A <strong>security group</strong> has been defined for each region.  This is done by
 adding a line to make.groups after commenting out the preceding line(s)
 and then executing the command.</p>
-
-<h2>
-<a id="user-content-utilities" class="anchor" href="#utilities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Utilities</h2>
-
-<h3>
-<a id="user-content-vminit" class="anchor" href="#vminit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VmInit</h3>
-
-<h3>
-<a id="user-content-vmkill" class="anchor" href="#vmkill" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VmKill</h3>
-
-<h3>
-<a id="user-content-vmlaunch" class="anchor" href="#vmlaunch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmLaunch</h3>
-
-<h3>
-<a id="user-content-vmlist" class="anchor" href="#vmlist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmList</h3>
-
-<h3>
-<a id="user-content-vmscrub" class="anchor" href="#vmscrub" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmScrub</h3>
-
-<h3>
-<a id="user-content-vmupdate" class="anchor" href="#vmupdate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmUpdate</h3>
-
-<h3>
-<a id="user-content-vmverify" class="anchor" href="#vmverify" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>vmVerify</h3>
-
-<h2>
-<a id="user-content-project-status" class="anchor" href="#project-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Status</h2>
-
+<h2>Utilities</h2>
+<h3>VmInit</h3>
+<h3>VmKill</h3>
+<h3>vmLaunch</h3>
+<h3>vmList</h3>
+<h3>vmScrub</h3>
+<h3>vmUpdate</h3>
+<h3>vmVerify</h3>
+<h2>Project Status</h2>
 <p>Just a hint of a sketch.  Tests get ResourceWarnings due to unclosed
 SSL sockets.</p>
-
 <h2>Licensing</h2>
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />The material on this github.io website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
 <p>Project software is licensed under an MIT license.
