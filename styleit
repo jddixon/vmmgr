@@ -4,7 +4,7 @@ if [ ! -z "${DEV_BASE// }" ]
 then
   cd $DEV_BASE/py/vmmgr
   
-  autopep8 -ai -r vmmgr vm_init vm_kill vm_launch vm_list vm_scrub vm_update vm_verify *.py
+  autopep8 -air tests src
   
 else
   echo "DEV_BASE is not defined"
