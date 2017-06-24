@@ -6,7 +6,7 @@
 import re
 from distutils.core import setup
 __version__ = re.search(r"__version__\s*=\s*'(.*)'",
-                        open('vmmgr/__init__.py').read()).group(1)
+                        open('src/vmmgr/__init__.py').read()).group(1)
 
 # see http://docs.python.org/distutils/setupscript.html
 
@@ -15,10 +15,11 @@ setup(name='vmmgr',
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
       py_modules=[],
-      packages=['vmmgr'],
+      packages=['src/vmmgr'],
       # following could be in scripts/ subdir
-      scripts=['vm_init', 'vm_kill', 'vm_launch',
-               'vm_list', 'vm_scrub', 'vm_update', 'vm_verify', ],
+      scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch',
+               'src/vm_list', 'src/vm_scrub', 'src/vm_update', 
+               'src/vm_verify', ],
       description='tools for managing VMs in EC2 cloud',
       url='https:/jddixon.github.io/vmmgr',
       classifiers=[

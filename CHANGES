@@ -1,5 +1,11 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.16
+    2017-06-24
+        * restructure for pytest                                    SLOC 1828
+v0.5.15
+    2017-05-06
+        * drop dist/* from repos; plus minor edits                  SLOC 1851
 v0.5.14
     2017-01-28
         * simplify utilities using optionz:: dump_options()         SLOC 1689
@@ -103,6 +109,8 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
+
 
 
 

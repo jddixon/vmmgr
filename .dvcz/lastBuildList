@@ -7,54 +7,28 @@ Giaje1YAJPNVBt3dlOA5lhBp4GpSYBskJ9UR2Zyt3lgAGK3dEwxYETLMh9VWEV8i
 k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
-vmmgr v0.5.14
-2017-01-29 01:31:01
+vmmgr v0.5.16
+2017-06-24 22:54:58
 # BEGIN CONTENT #
 vmmgr
  .dvcz
-  builds 05769bd777c227594eb55f31bdfc065e1668090f
-  copyright 803f3e50518123ef8a08d34f2238e89b62d0c9a2
-  lastBuildList 87dee3b860991fe8f1c4945394e940bcb6860f42
+  builds 971482c8cde953cb51dc24d6efd6410bd273adec
+  copyright 4d8d885e40d66a840aa68d7d17b7007f41270444
+  lastBuildList d6d9435ea4698a6914dac0a0c8fbea4e5f6795a4
   license 5977a55c75bb4612004451a56b0b4c22d9d3311d
   projCfg c1a2a1fb326ea29f9d70036e3519f1774b33416c
   projCfg.local 4cb356727a46881723569ade91e79b131052dd07
-  version d586cdea152157f2cecd2a241d9dcc35562e4d54
- .gitignore b2cc5fa149056ba0a01449dcdb19409728483a5c
- CHANGES 25f62273dbf710e3acd26bec903e3332dc1872f3
+  version 518f6c2b97a4fee47ca2c0fb9a0c77b6d4a3d744
+ .gitignore 5185a3cb0539828e50edfc25d60c80ae291197fa
+ CHANGES 6870f2991d3636efa425ddd8a334bcc34f4f938e
  LICENSE-MIT.md d1cecfadc47b23486f6bc8a863cfdde348c3eb46
  MANIFEST.in 52a150519c4c8afb2e1b2c0a3b03ce6d68923265
  README.md d7e723122a0d55c5b3d7a0df1e0a5ed5c03d61fe
  TODO db5549892c6c1002bc5084e13519442d05c9be4d
  bkp2U dad9b45ed66a6cd9bf919d9ab03659a703ea4e65
- checkCoverage 17e1ce70c98a0f0829e677ff4733a908df634591
- countem df85f9e2d84049a2e14a0e98b6410ffe81afa9d1
- dist
-  vmmgr-0.2.0.tar.gz 61f57d634628a5b0fe06df9282ff75e5ee77e95f
-  vmmgr-0.3.2.tar.gz 64b5c6ff9805f68ce7377121d5d3bfb1c858d2a5
-  vmmgr-0.4.0.tar.gz 874e948b19cec1b657bed7422052ffc74386f494
-  vmmgr-0.4.1.tar.gz 264e43278c1bc9cdac596a34fda5dc5a0859e4a7
-  vmmgr-0.4.2.tar.gz 9808791a56d56428834a5e89dd7d985c79b75432
-  vmmgr-0.4.3.tar.gz 63220501e13c34dc49ac3df3578dadd15d3fc5ca
-  vmmgr-0.4.4.tar.gz a1d58a411a814826f40749e42bef859893b3ea46
-  vmmgr-0.4.7.tar.gz 547b6682ec0481855e7645b6886953bfa2a21586
-  vmmgr-0.4.8.tar.gz 335e763fcb3feab881a33e36d422412d9576b262
-  vmmgr-0.4.9.tar.gz 59f74fe3de98fe377611732df0ca9d5da2d2a028
-  vmmgr-0.5.0.tar.gz 68d8bcdf85aa13ac70312002712e64f180bc9deb
-  vmmgr-0.5.1.tar.gz 940e6a63807080883b3909a017b7541c8ac797ff
-  vmmgr-0.5.10.tar.gz 120698cc85086b40798a8b440060bd95b57b0cb1
-  vmmgr-0.5.11.tar.gz 06f9cd3602944ea2c58015eea2ffe0229db8c4fe
-  vmmgr-0.5.12.tar.gz ca339470696214b53a323ddbdf169609e6b66aeb
-  vmmgr-0.5.13.tar.gz eeb9e6a55c6b787931b56da7df4b4c6003c50bd6
-  vmmgr-0.5.14.tar.gz b1275aea89c36bc90309952cb1c993c827e3c78b
-  vmmgr-0.5.2.tar.gz 6c06659204fad2c58e8f5e84fc73fa45e6ad2341
-  vmmgr-0.5.3.tar.gz e69a9a29ae78413b49061f657e653d1efac675a4
-  vmmgr-0.5.4.tar.gz 8ceef7dde775fe6cecbe04af2c4eb41aa15c11d4
-  vmmgr-0.5.5.tar.gz 3706b474506a416b98f2296d7f6f650087e70c80
-  vmmgr-0.5.6.tar.gz fc478342191f481d2764d27bd47555b43ed62bb1
-  vmmgr-0.5.7.tar.gz d0ba99901a5fb28949b8398c38001bdb0b2d7259
-  vmmgr-0.5.8.tar.gz ee5be4105d252ecd26c51f095630febc65b13c6d
-  vmmgr-0.5.9.tar.gz 16c599455c38b73f06df4e2854d0d4c99eab6430
- doPyLint 38a7aa68dee04c8274907d2c55b2035fc867981d
+ checkCoverage f107324ee23b03aca5d5aa007a3800e1be05d562
+ countem c895ed5eb98764432ae57ecf1606fdf24a4d0592
+ doPyLint 6bdc8e2c775f55da18f99d442b1858add44b496a
  ghpDoc
   css
    LICENSE.html5-boilerplate.md ded771b3245b190da0e81c76de5a80d41392c0a6
@@ -88,22 +62,24 @@ vmmgr
  rtb.use1 7a2537a8dcd4842e82204161d3528e39cdb9131a
  rtb.usw1 400f9fdaac17e4887d256392d31b34378d5c9cdc
  rtb.usw2 b5c9cbbefb18b0971d5a7cd26cdfc408c5b3d949
- setup.py b4b5423924a0be1f130beb33ac092c75da218675
- styleit 755147c1c19612666f16b5b0a7c4f1ef9546143b
+ setup.py ced09399de91b5de75c5247a78aaa6d356f7b99b
+ src
+  vm_init ce70aed022b760fe846d87ccd9bae2c92dce3f23
+  vm_kill 6c2fe13b8fd9ba2f6c91b5347358eee66af1f96b
+  vm_launch 517235f357e27d72b5070668843ce99917f0e799
+  vm_list 286dc4e3eb76495383f7d87e12fa161074b63c79
+  vm_scrub b3e4d410b9dca01ac6eaff0e0f720a386567c843
+  vm_update 88771374b446f084294702272351801330522a29
+  vm_verify 8c7de1c25db0cd4f5f947a917d9f07d1761cf249
+  vmmgr
+   __init__.py 4b5377717453702e179a38dfddbc73c983ac98af
+ styleit 78ef57f258e35bed2afdd0e1a5404712a88173b9
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
- test.all 9ac3bc1d00f3819c5c798f77c3b7feb9d3799c06
- test_setup.py 8044c486b9478751180b5106b24e1e4d7351baeb
+ test.all 8ecc2a49195415b92dbb42cb674317e088be1ef3
+ tests
+  test_setup.py 143718b25953f7ee5f08f7b6d06ec3cfc2de7fe8
  update.vpcs ac662841495c599cc0e55e0fbb2593c64d33c93f
- vm_init ce70aed022b760fe846d87ccd9bae2c92dce3f23
- vm_kill 6c2fe13b8fd9ba2f6c91b5347358eee66af1f96b
- vm_launch 517235f357e27d72b5070668843ce99917f0e799
- vm_list 286dc4e3eb76495383f7d87e12fa161074b63c79
- vm_scrub b3e4d410b9dca01ac6eaff0e0f720a386567c843
- vm_update 88771374b446f084294702272351801330522a29
- vm_verify 8c7de1c25db0cd4f5f947a917d9f07d1761cf249
- vmmgr
-  __init__.py ec05c3e212175a0871ed416dc1418503d40190d4
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-FYaNtX1kJro+iwtmU0LT5Eef4Zqqy1S2CVCmjd5AXwhKyFXOrvESreD1n050Jn7qAeCdC7E1uJ7RsG4ciP1mCCr5ihk8dbhiXDMMbpYnqhxkTr994xFx5dVl526wBGP9f0uR8nXIgiNRh1vHqcgOFWCKUSsK0R66c2XrviT7HScFcpwstHoY+KUQPzwpyZ1y29LvlTvu1wTGfbhiXuyPHW8eGD8xeMVCKQ2nF2htvWgP5+aQUmXz4OUPw2p+/whLQAay+cH5+/pRqZOaZsIG9v5aSPs/77cg1HWRHBlI81Iq+Zl2DSZWePVjeWGv3QZw2dcyG/Yjz8b1xlzmnvTXsQ==
+fXu4jIwDWPHfaTNNDxXUuZrP9VHMzBjvkbYQCtkfQuI9d0sEaNNVjSXYNM+rvULi0Z+amP3k4/3+owmxN/obGbWU9XwTR0Td5cs5iOPjE89+8jfGjq6qbbRsV4vDSVrnyHrGWzjUlddG7zGS1gmb6ld98gQxZ4mGkHIi99g9uGHc4gKPWIDDf96qoeyfaq/zxIfzQRPzE/i8V5IsvO8QWs1/+zOPjnz05C8+oXXXL0NDR+fOwj6QVw6n+Oje7/Eglzy7RpDy4lrZfKDyXNwYENKnq5V0pmZh55NQDH4GslNEHh8VIdtN0KQBxbJQCbKKWG+DZf3IByX40b7irDSQiQ==
