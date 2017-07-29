@@ -1,12 +1,10 @@
 # see http://docs.python.org/distutils/sourcedist.html
 
-include netDistrib.conf
-include auto8it countem installit test.all update*
-INCLUDE CHANGES README.* TODO MANIFEST.in
-include group* make* nacl* permit* restrict* rtb* subnets vpcs
-include vmInit vmKill vmLaunch vmList vmScrub vmUpdate vmVerify
-recursive-include vmmgr *.py
-global-exclude junk* .*swp
+include CHANGES LICENSE* MANIFEST.in README* TODO
+include bkp2U checkCoverage countem doPyLint installit pylintrc styleit test.all
+include setup.py
+recursive-include src *
+recursive-include tests *
+recursive-include ghpDoc *
+global-exclude junk* .*swp 
 prune   .svn
-
-

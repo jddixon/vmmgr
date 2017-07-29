@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.17
+    2017-07-29
+        * rewrite setup.py, MANIFEST.in; minor edits cfg files      SLOC 1833
 v0.5.16
     2017-06-24
         * restructure for pytest                                    SLOC 1828
@@ -131,7 +134,5 @@ v0.1.0
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> devel
+

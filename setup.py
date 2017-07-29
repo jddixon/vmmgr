@@ -18,7 +18,7 @@ setup(name='vmmgr',
       packages=['src/vmmgr'],
       # following could be in scripts/ subdir
       scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch',
-               'src/vm_list', 'src/vm_scrub', 'src/vm_update', 
+               'src/vm_list', 'src/vm_scrub', 'src/vm_update',
                'src/vm_verify', ],
       description='tools for managing VMs in EC2 cloud',
       url='https:/jddixon.github.io/vmmgr',

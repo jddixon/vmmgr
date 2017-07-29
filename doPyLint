@@ -1,7 +1,8 @@
+#!/usr/bin/env bash
 
-# should add test*.py
-
-pylint setup.py src/vmmgr   \
-    tests/test*.py            \
-    tests/vm_init tests/vm_kill tests/vm_launch tests/vm_list \
-    tests/vm_scrub tests/vm_update tests/vm_verify
+if [ ! -z "${DEV_BASE// }" ]
+then
+  pylint setup.py src/* tests/*
+else
+  echo "DEV_BASE is not defined"
+fi

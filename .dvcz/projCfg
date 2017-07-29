@@ -2,11 +2,13 @@
 project:vmmgr
 package:vmmgr
 mainlang:py
-version:0.5.13
-versionDate:2017-01-02
+version:0.5.16
+versionDate:2017-06-24
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
+dir:std:src
+dir:std:tests
 dir:std:.dvcz
 dir:pkg:vmmgr
 dir:clr:build
@@ -64,4 +66,3 @@ py:global:vm_list
 py:global:vm_scrub
 py:global:vm_update
 py:global:vm_verify
-py:test:test_setup.py
