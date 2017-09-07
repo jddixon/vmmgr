@@ -1,9 +1,9 @@
 :?0.0.1?:
 project:vmmgr
-package:vmmgr
+package:src/vmmgr
 mainlang:py
-version:0.5.16
-versionDate:2017-06-24
+version:0.5.17
+versionDate:2017-07-29
 :?dirs?:
 dir:std:ghpDoc
 dir:std:dist
@@ -27,6 +27,9 @@ code:std:pylintrc
 code:std:.coveragerc
 code:std:check.summary
 code:std:MANIFEST.in
+code:std:tox.ini
+code:std:requirements.txt
+code:std:test_requirements.txt
 code:local:groups
 code:local:group.binders
 code:local:group.default
@@ -58,6 +61,7 @@ bash:std:auto8it
 bash:local:update.vpcs
 bash:local:make.groups
 bash:local:make.vpcs
+py:std:setup.cfg
 py:std:setup.py
 py:global:vm_init
 py:global:vm_kill

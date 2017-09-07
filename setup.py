@@ -1,32 +1,40 @@
 #!/usr/bin/python3
 # vmmgr/setup.py
 
-""" Set up distutils for vmmgr. """
+""" Setuptools project configuration for vmmgr. """
 
-import re
-from distutils.core import setup
-__version__ = re.search(r"__version__\s*=\s*'(.*)'",
-                        open('src/vmmgr/__init__.py').read()).group(1)
+from os.path import exists
+from setuptools import setup
 
-# see http://docs.python.org/distutils/setupscript.html
+long_desc = None
+if exists('README.md'):
+    with open('README.md', 'r') as file:
+        long_desc = file.read()
 
 setup(name='vmmgr',
-      version=__version__,
+      version='0.5.18',
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
+      long_description=long_desc,
+      packages=['vmmgr'],
+      package_dir={'': 'src'},
       py_modules=[],
-      packages=['src/vmmgr'],
-      # following could be in scripts/ subdir
-      scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch',
-               'src/vm_list', 'src/vm_scrub', 'src/vm_update',
-               'src/vm_verify', ],
+      include_package_data=False,
+      zip_safe=False,
+      scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch', 'src/vm_list',
+               'src/vm_scrub', 'src/vm_update', 'src/vm_verify'],
       description='tools for managing VMs in EC2 cloud',
-      url='https:/jddixon.github.io/vmmgr',
+      url='https://jddixon.github.io/vmmgr',
       classifiers=[
           'Development Status :: 2 - Pre-Alpha',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
           'Natural Language :: English',
-          'Programming Language :: Python 3',
+          'Programming Language :: Python 2.7',
+          'Programming Language :: Python 3.3',
+          'Programming Language :: Python 3.4',
+          'Programming Language :: Python 3.5',
+          'Programming Language :: Python 3.6',
+          'Programming Language :: Python 3.7',
           'Topic :: Software Development :: Libraries :: Python Modules',
       ],)
