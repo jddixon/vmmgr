@@ -2,10 +2,10 @@
 
 """ Virtual Machine Manager (vmmgr) module. """
 
-import os
-import sys
-import time
-import boto3
+# import os
+# import sys
+# import time
+# import boto3
 
 __all__ = ['__version__', '__version_date__',
            'REGIONS', 'GROUP_IDS',
@@ -19,11 +19,11 @@ __all__ = ['__version__', '__version_date__',
            'VMMgr', 'VMMgrError',
            'Host', 'EC2Host', 'LinuxBox', ]
 
-__version__ = '0.5.16'
-__version_date__ = '2017-06-24'
+__version__ = '0.5.18'
+__version_date__ = '2017-09-07'
 
 # CONSTANTS #########################################################
-# Regions of interest at this time (at the end of 2016 there were 14 regions).
+# Regions of interest at this time (at the end of 2016 there were 14 regions)
 REGIONS = ['eu-west-1', 'us-east-1',
            'us-west-1', 'us-west-2', ]
 
@@ -106,7 +106,7 @@ class VMMgr(object):
     :ivar _vpc_cidrS: List of CIDR block specs, dotted quad followed by prefix
         length.
     :ivar _zones: List of availability zones within region.
-    :ivar _subnet_cidrs: List of CIDR blocks associated with respective subnets.
+    :ivar _subnet_cidrs: List of CIDR blocks associated with respective subnets
     :ivar _subnet_ids: List of subnet IDs.
     :ivar _igateway_ids: List of internet gateways associated with respective
         subnets.

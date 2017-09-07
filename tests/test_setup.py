@@ -87,9 +87,9 @@ class TestSetup(unittest.TestCase):
             # END
 
             # DEBUG
-            #print("region_info: %s" % region_info)
-            #print("  cnx:      %s" % region_info.connection)
-            #print("  endpoint: %s" % region_info.endpoint)
+            # print("region_info: %s" % region_info)
+            # print("  cnx:      %s" % region_info.connection)
+            # print("  endpoint: %s" % region_info.endpoint)
             # END
 
             # XXX THIS CODE IS NOW UNREACHABLE
@@ -116,12 +116,13 @@ class TestSetup(unittest.TestCase):
 
             # AVAILABILITY ZONES --------------------------
             # for z_ndx, zone in enumerate(ZONES[r_ndx]):
-            #    print("    zone %s, cidr %s" % (zone, SUBNET_CIDRS[r_ndx][z_ndx]))
+            #    print("    zone %s, cidr %s" % (
+            #        zone, SUBNET_CIDRS[r_ndx][z_ndx]))
             # SUBNETS -----------------------
             #    #sub = vpc_cnx.create_subnet(VPC_IDS[r_ndx],
             #    #        SUBNET_CIDRS[r_ndx][z_ndx],
             #    #        availability_zone=zone)
-            #    #print "SUBNET: %z" % sub
+            #    # print "SUBNET: %z" % sub
 
             # INSTANCES ---------------------
 
@@ -187,7 +188,7 @@ class TestSetup(unittest.TestCase):
                     ebs = dev['Ebs']
                     status = ebs['Status']
                     vol_id = ebs['VolumeId']
-                    del_on_term = ebs['DeleteOnTermination']    # boolean
+                    # del_on_term = ebs['DeleteOnTermination']    # boolean
                     print("    %d name %-9s status %s vol_id %s" % (
                         count, name, status, vol_id))
 
@@ -214,9 +215,9 @@ class TestSetup(unittest.TestCase):
             # END
 
             # DEBUG
-            #print("region_info: %s" % region_info)
-            #print("  cnx:      %s" % region_info.connection)
-            #print("  endpoint: %s" % region_info.endpoint)
+            # print("region_info: %s" % region_info)
+            # print("  cnx:      %s" % region_info.connection)
+            # print("  endpoint: %s" % region_info.endpoint)
             # END
 
             # XXX THIS CODE IS NOW UNREACHABLE
@@ -243,12 +244,13 @@ class TestSetup(unittest.TestCase):
 
             # AVAILABILITY ZONES --------------------------
             # for z_ndx, zone in enumerate(ZONES[r_ndx]):
-            #    print("    zone %s, cidr %s" % (zone, SUBNET_CIDRS[r_ndx][z_ndx]))
+            #    print("    zone %s, cidr %s" % (
+            #        zone, SUBNET_CIDRS[r_ndx][z_ndx]))
             # SUBNETS -----------------------
             #    #sub = vpc_cnx.create_subnet(VPC_IDS[r_ndx],
             #    #        SUBNET_CIDRS[r_ndx][z_ndx],
             #    #        availability_zone=zone)
-            #    #print "SUBNET: %z" % sub
+            #    # print "SUBNET: %z" % sub
 
             # INSTANCES ---------------------
 

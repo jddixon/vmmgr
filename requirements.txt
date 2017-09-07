@@ -1,0 +1,3 @@
+# vmmgr/requirements.txt
+boto3
+
