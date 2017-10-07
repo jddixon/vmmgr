@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.19
+    2017-10-07
+        * add projConfig.toml                                       SLOC 1916
 v0.5.18
     2017-09-07
         * pep8; add tox.ini, *requirements.txt                      SLOC 1876
@@ -139,7 +142,5 @@ v0.1.0
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> devel
+

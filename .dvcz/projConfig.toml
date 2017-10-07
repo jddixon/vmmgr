@@ -1,0 +1,35 @@
+projConfig.toml for vmmgr
+
+[meta]
+    version = '0.1.0'
+
+[project]
+    name = 'vmmgr'  # distro name
+    package = 'vmmgr'  # internal name
+    proj_dir = '/home/jdd/dev/py/vmmgr'
+    main_lang = 'py'
+    version = '0.5.19'
+    version_date = '2017-10-07'
+    author = 'Jim Dixon'
+    author_email = 'jddixon@gmail.com'
+    copyright = '2014-2017'
+    description = 'tools for managing VMs in EC2 cloud'
+    dev_status = 'pre_alpha'
+    license = 'mit'
+    state = 'shared'
+    url = 'https://jddixon.github.io/vmmgr'
+
+[py]
+    packages=['vmmgr']
+    package_dir = ['src']
+    test_dir = ['tests']
+    py_modules=[]
+    scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch', 'src/vm_list',
+             'src/vm_scrub', 'src/vm_update', 'src/vm_verify']
+    ext_modules=[]
+
+    # sdReq output
+    distshare=['optionz']
+    env_vars=[]
+    requirements=['setuptools']
+    test_requirements=['boto3', 'botocore']

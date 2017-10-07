@@ -12,7 +12,7 @@ if exists('README.md'):
         long_desc = file.read()
 
 setup(name='vmmgr',
-      version='0.5.18',
+      version='0.5.19',
       author='Jim Dixon',
       author_email='jddixon@gmail.com',
       long_description=long_desc,
@@ -23,6 +23,7 @@ setup(name='vmmgr',
       zip_safe=False,
       scripts=['src/vm_init', 'src/vm_kill', 'src/vm_launch', 'src/vm_list',
                'src/vm_scrub', 'src/vm_update', 'src/vm_verify'],
+      ext_modules=[],
       description='tools for managing VMs in EC2 cloud',
       url='https://jddixon.github.io/vmmgr',
       classifiers=[

@@ -1,3 +1,4 @@
 # vmmgr/test_requirements.txt
+boto3
 botocore
 
