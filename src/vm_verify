@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 #
 # ~/dev/py/vmmgr/vm_verify
 
@@ -83,7 +83,7 @@ def main():
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first
     if args.all_regions:
-        if len(args.regions) > 0:
+        if args.regions:
             print('all regions selected, so ignoring region name(s) provided')
             args.regions = []
         args.regions = REGIONS
@@ -93,7 +93,7 @@ def main():
                 print(("dropping %s: it's not a valid AWS region" % region))
                 args.regions.remove(region)
 
-    if len(args.regions) == 0:
+    if not args.regions:
         args.regions = ['us-east-1']
 
     args.regions.sort()
@@ -110,7 +110,7 @@ def main():
     if args.verbose or args.just_show:
         print(dump_options(args))
 
-        if len(args.regions) > 0:
+        if args.regions:
             print('regions:')
             for region in args.regions:
                 print("    %s" % region)

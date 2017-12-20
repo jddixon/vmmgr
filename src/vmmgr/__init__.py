@@ -19,8 +19,8 @@ __all__ = ['__version__', '__version_date__',
            'VMMgr', 'VMMgrError',
            'Host', 'EC2Host', 'LinuxBox', ]
 
-__version__ = '0.5.19'
-__version_date__ = '2017-10-07'
+__version__ = '0.5.20'
+__version_date__ = '2017-12-20'
 
 # CONSTANTS #########################################################
 # Regions of interest at this time (at the end of 2016 there were 14 regions)
@@ -335,6 +335,7 @@ class EC2Host(Host):
     """ Virtual machine on Amazon EC2 cloud as Host. """
 
     def __init__(self, fqdn):
+        # pylint: disable=useless-super-delegation
         super().__init__(fqdn)
 
 
@@ -342,4 +343,5 @@ class LinuxBox(Host):
     """ Linux box (actual hardware on a subnet) as Host. """
 
     def __init__(self, fqdn):
+        # pylint: disable=useless-super-delegation
         super().__init__(fqdn)

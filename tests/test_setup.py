@@ -92,7 +92,10 @@ class TestSetup(unittest.TestCase):
             # print("  endpoint: %s" % region_info.endpoint)
             # END
 
+            ##################################
             # XXX THIS CODE IS NOW UNREACHABLE
+            ##################################
+
             vpc = ec2.Vpc(VPC_IDS[r_ndx])    # gets a ResourceWarning
             self.assertTrue(vpc is not None)
             self.assertEqual(vpc.cidr_block, VPC_CIDRS[r_ndx])
@@ -161,7 +164,7 @@ class TestSetup(unittest.TestCase):
 
                 ifaces = instance['NetworkInterfaces']
                 print("  There is/are %d interfaces" % len(ifaces))
-                for count, iface in enumerate(ifaces):
+                for iface in ifaces:
                     # there are 14 keys
                     print(
                         "    ID:            %s" %
@@ -182,15 +185,14 @@ class TestSetup(unittest.TestCase):
 
                 blkdev = instance['BlockDeviceMappings']
                 print("  There is/are %d block devices" % len(blkdev))
-                for count in range(len(blkdev)):
-                    dev = blkdev[count]
+                for ndx2, dev in enumerate(blkdev):
                     name = dev['DeviceName']
                     ebs = dev['Ebs']
                     status = ebs['Status']
                     vol_id = ebs['VolumeId']
                     # del_on_term = ebs['DeleteOnTermination']    # boolean
                     print("    %d name %-9s status %s vol_id %s" % (
-                        count, name, status, vol_id))
+                        ndx2, name, status, vol_id))
 
             volumes = ec2.describe_volumes()['Volumes']
             vcount = len(volumes)
@@ -220,7 +222,10 @@ class TestSetup(unittest.TestCase):
             # print("  endpoint: %s" % region_info.endpoint)
             # END
 
+            ##################################
             # XXX THIS CODE IS NOW UNREACHABLE
+            ##################################
+
             vpc = ec2.Vpc(VPC_IDS[r_ndx])    # gets a ResourceWarning
             self.assertTrue(vpc is not None)
             self.assertEqual(vpc.cidr_block, VPC_CIDRS[r_ndx])

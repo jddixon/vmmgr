@@ -82,17 +82,14 @@ def main():
     # arguments are interpreted relative to the regions ---
     # list, so we settle this first
     if args.all_regions:
-        if len(args.regions) > 0:
-            print('all regions selected, so ignoring region name(s) provided')
-            args.regions = []
         args.regions = REGIONS
-    else:
+    elif args.regions:
         for region in args.regions:
             if not valid_region(region):
                 print(("dropping %s: it's not a valid AWS region" % region))
                 args.regions.remove(region)
 
-    if len(args.regions) == 0:
+    if not args.regions:
         args.regions = ['us-east-1']
 
     args.regions.sort()
