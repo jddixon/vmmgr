@@ -8,21 +8,21 @@ k2lyCIE/V/CDb9eVDYQgYSJYrnQ/JAPST7NbcY8aI+/0l7QVBhLBpmOCvmS6ofvz
 /QIDAQAB
 -----END PUBLIC KEY-----
 vmmgr
-2017-12-20 22:13:03
+2018-03-08 16:02:55
 # BEGIN CONTENT #
 vmmgr
  .cache
   v
    cache
-    lastfailed bf21a9e8fbc5a3846fb05b4fa0859e0917b2202f
+    lastfailed b333bbd297334e5844998012db19d0f98f62eb19
  .dvcz
-  builds 2dd50161213702e141cf38b2700feede6a253a73
-  lastBuildList 64edc065e6def562e6a5bc6884fd4ddb0a2de0f2
+  builds 1855f493d17ec77570413d68a7c555510817da20
+  lastBuildList 88e0625a158d9d314397b01cdf616d8127fddf14
   projCfg 69b1216f9a538bba73cf6edb96f2e011263c39e7
   projCfg.local 4cb356727a46881723569ade91e79b131052dd07
-  projConfig.toml b463ecb2fe202bc480255953d0e5898221b641bd
+  projConfig.toml 24ebef0337f416ed765c180c528c43cac14b67df
  .gitignore c8129c7133b7a7755cefd3dfc62a9af7bc306aa0
- CHANGES 4356a894daebcdbc269d6b22b3fb8d570f6ec2e1
+ CHANGES 4aca695c580916318b5949ff299fa8cd4d285fb9
  LICENSE-MIT.md dbe8833d7e1124b4e47613ba1e39a66ccc03dd80
  MANIFEST.in ee87ecf6928c0c4c69376734eba9cf532ce748b1
  README.md d7e723122a0d55c5b3d7a0df1e0a5ed5c03d61fe
@@ -65,7 +65,7 @@ vmmgr
  rtb.use1 7a2537a8dcd4842e82204161d3528e39cdb9131a
  rtb.usw1 400f9fdaac17e4887d256392d31b34378d5c9cdc
  rtb.usw2 b5c9cbbefb18b0971d5a7cd26cdfc408c5b3d949
- setup.py fc4872d9008c1589fab7955b3f5b80a7683cd4ee
+ setup.py d29b6bb73714b7bfa5dc865e2053703000241393
  src
   vm_init 090aae29f19223cc39e90f509168272fe6bf20ee
   vm_kill 47e8e23185764f9288f0e20096e0ab34103f8af4
@@ -75,16 +75,16 @@ vmmgr
   vm_update 0834738f7acaf2689cd4f993561ff0c000194ab0
   vm_verify 4b8f8a8d6207240e880f405baecc409fe4621fa9
   vmmgr
-   __init__.py dcb584b07e5c563b0f359955de96bc3d688ea54e
+   __init__.py 440b2ffd7e0509bfe7c44fd9fd8d393ac44fc86a
  styleit 078e78f7062f84e3aa5218081504b3733911ddd5
  subnets 08b07e4f3b795e8e8e38c1f650c33177ac724a1b
  test.all 001613318f95d084b34de7830180e8f2a71e0dec
- test_requirements.txt 1ef666b5de880b48fbaedbc35dc08e37592866f1
+ test_requirements.txt 59117307cf79321f8f75185dbaf69d5a2fb4df9a
  tests
   test_setup.py ece01a22f9e8993efd634b2d0ca0cee4d81a0845
- tox.ini 6b7ffb20f0ac21ceef8a6fc2a4497875ee300019
+ tox.ini 35ccd81e4bce47b4e02a604227d55982d42b1822
  update.vpcs ac662841495c599cc0e55e0fbb2593c64d33c93f
  vpcs 8ee8ffa838624d950c157e5aff2d8266e40cd709
 # END CONTENT #
 
-L4QFIuGZqf+V4L7wfwXHc5RMhPedwqOwB/erWWKu4psJZlVL0IBPcw3PDN65nlkMtW7QQxFHfYPy4zhHnNoc3xXz9SUMEZRb3fWdwVuqB7vJJ2eyfUkohydoPu9+P5c2x0EG858Pyque92XUXy9Vd7qpwzMkNoIbb4j4YJVdddDGBHArjTfEMhJjQUwTNoimXe861bOZZCoffDZqqJvbwZM9o60OqkFQAXvIQpMv1+Hg5IkeTQ8L97X4TA71Dz2HAz8C0SE2kjlXX+BjpO1WRiryAR+odPzWEBJe0iUWPRBlH4zs0x0AsLtLfSbQuZjl6WZou7pG0w3/jKcPxIQuUQ==
+JjiWsPnh8Q+5b/xpJSt1rA0FMr4YG9q584cCGfDiw8t6sZgOgxRBc7lfMUadPeXZiX9udJJeG5qTEfvEPvhGfqRlsOw5syEjlxixnONYLfEw8U+i83J87K91M2UYrWQ3hKtCNPn+M3XPMv0PFquSf7c1gZs2yjBktOpS+k0OByEJcWIW30hDfC08q1LjuJvFI4cOmAnbP4C9k3nNjshu0y9zKjvSlMjMpip6rvWNwTb6+S7KqJxdjSlQA6WxnGz5QhgfCBJm9ytRKiCsnMr3f37pOewQ6mVnB18gJ3ZeH/Ys2XRtMugaeGFmDneE0RblakuXgkvvRJt85CfZcYvr2g==

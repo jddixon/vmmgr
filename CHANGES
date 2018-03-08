@@ -1,5 +1,8 @@
 # ~/dev/py/vmmgr/CHANGES
 
+v0.5.21
+    2018-03-08
+        * fix setup.py and tox config files                         SLOC 1888
 v0.5.20
     2017-12-20
         * code cleanup; pylinting                                   SLOC 1891
@@ -121,6 +124,7 @@ v0.1.1
 v0.1.0
     2014-07-16
         * initial import
+
 
 
 
